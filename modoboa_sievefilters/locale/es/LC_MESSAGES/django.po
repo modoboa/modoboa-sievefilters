@@ -1,0 +1,329 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Translators:
+# Pedro Gracia <lasarux@neuroomante.com>, 2011-2013
+# Pedro Gracia <pedro.gracia@impulzia.com>, 2010-2011
+msgid ""
+msgstr ""
+"Project-Id-Version: Modoboa\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-02-11 13:54+0100\n"
+"PO-Revision-Date: 2013-10-01 09:56+0000\n"
+"Last-Translator: Pedro Gracia <lasarux@neuroomante.com>\n"
+"Language-Team: Spanish (http://www.transifex.com/projects/p/modoboa/language/"
+"es/)\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: app_settings.py:21
+msgid "ManageSieve settings"
+msgstr "Configuración de ManageSieve"
+#: app_settings.py:24
+msgid "Server address"
+msgstr "Dirección del servidor"
+#: app_settings.py:26
+msgid "Address of your MANAGESIEVE server"
+msgstr "Dirección de su servidor MANAGESIEVE"
+#: app_settings.py:31
+msgid "Server port"
+msgstr "Puerto del servidor"
+#: app_settings.py:33
+msgid "Listening port of your MANAGESIEVE server"
+msgstr "Puerto a la escucha de su servidor MANAGESIEVE"
+#: app_settings.py:38
+msgid "Connect using STARTTLS"
+msgstr "Conectar usando STARTTLS"
+#: app_settings.py:40
+msgid "Use the STARTTLS extension"
+msgstr "Usar la extensión STARTTLS"
+#: app_settings.py:44
+msgid "Authentication mechanism"
+msgstr "Mecanismos de autenticación"
+#: app_settings.py:47
+msgid "Prefered authentication mechanism"
+msgstr "Mecanismo de autenticación preferido"
+#: app_settings.py:55
+msgid "General"
+msgstr "General"
+#: app_settings.py:59
+msgid "Editor mode"
+msgstr "Modo editor"
+#: app_settings.py:61
+msgid "Select the mode you want the editor to work in"
+msgstr "Seleccione el modo en el que desea que el editor trabaje"
+#: forms.py:23
+msgid "Check to activate this filters set"
+msgstr "Marcar para activar este conjunto de filtros"
+#: forms.py:76 templates/modoboa_sievefilters/guieditor.html:6
+msgid "Name"
+msgstr "Nombre"
+#: forms.py:78
+msgid "All of the following"
+msgstr "Todos los siguientes"
+#: forms.py:79
+msgid "Any of the following"
+msgstr "Cualquiera de los siguientes"
+#: forms.py:80
+msgid "All messages"
+msgstr "Todos los mensajes"
+#: forms.py:86
+msgid "contains"
+msgstr "contiene"
+#: forms.py:87
+msgid "does not contain"
+msgstr "no contiene"
+#: forms.py:88
+msgid "is"
+msgstr "es"
+#: forms.py:89
+msgid "is not"
+msgstr "no es"
+#: forms.py:94
+msgid "Subject"
+msgstr "Tema"
+#: forms.py:97
+msgid "Sender"
+msgstr "Remitente"
+#: forms.py:100
+msgid "Recipient"
+msgstr "Destinatario"
+#: forms.py:103
+msgid "Cc"
+msgstr "Cc"
+#: forms.py:105
+msgid "Size"
+msgstr "Tamaño"
+#: forms.py:106
+msgid "is greater than"
+msgstr "es mayor que"
+#: forms.py:107
+msgid "is less than"
+msgstr "es menor que"
+#: forms.py:111
+msgid "Move message to"
+msgstr "Mover el mensaje a"
+#: forms.py:113
+msgid "Redirect message to"
+msgstr "Redirigir el mensaje a"
+#: forms.py:128
+#, fuzzy
+msgid "Wrong filter name"
+msgstr "Nombre del fichero"
+#: general_callbacks.py:17 modo_extension.py:21
+#: templates/modoboa_sievefilters/index.html:4
+msgid "Message filters"
+msgstr "Filtros de mensajes"
+#: lib.py:46
+msgid "Connection to MANAGESIEVE server failed, check your configuration"
+msgstr "La conexión al servidor MANAGESIEVE falló, verifique su configuración."
+#: lib.py:94
+msgid "Not enough space on server"
+msgstr "No hay suficiente espacio en el servidor"
+#: modo_extension.py:14
+msgid "Plugin to easily create server-side filters"
+msgstr "Extensión para crear filtros en el servidor de forma sencilla"
+#: modo_extension.py:20
+msgid "Sieve filters"
+msgstr "filtros Sieve"
+#: templates/modoboa_sievefilters/filter.html:9
+msgid "Conditions"
+msgstr "Condiciones"
+#: templates/modoboa_sievefilters/filter.html:20
+#: templates/modoboa_sievefilters/guieditor.html:5 views.py:102
+msgid "Actions"
+msgstr "Acciones"
+#: templates/modoboa_sievefilters/guieditor.html:7
+msgid "Active"
+msgstr "Activo"
+#: templates/modoboa_sievefilters/guieditor.html:24
+msgid "No filter defined yet"
+msgstr "No hay un filtro definido aún"
+#: templates/modoboa_sievefilters/index.html:82
+msgid "Filter sets"
+msgstr "Conjunto de filtros"
+#: templates/modoboa_sievefilters/index.html:86
+msgid "active"
+msgstr "activo"
+#: templates/modoboa_sievefilters/index.html:101
+msgid ""
+"No filters set defined yet. You must create one in order to define filters."
+msgstr ""
+"No hay un conjunto de filtros definido aún. Debe crear uno para poder "
+"definir filtros."
+#: templatetags/sfilters_tags.py:17
+msgid "New filters set"
+msgstr "Nuevo conjunto de filtros"
+#: templatetags/sfilters_tags.py:35 views.py:149
+msgid "New filter"
+msgstr "Nuevo filtro"
+#: templatetags/sfilters_tags.py:46
+msgid "Save filters set"
+msgstr "Guardar conjunto de filtros"
+#: templatetags/sfilters_tags.py:54
+msgid "Activate filters set"
+msgstr "Activar conjunto de filtros"
+#: templatetags/sfilters_tags.py:59
+msgid "Remove filters set"
+msgstr "Eliminar conjunto de filtros"
+#: templatetags/sfilters_tags.py:63
+msgid "Download"
+msgstr "Descargar"
+#: templatetags/sfilters_tags.py:78 views.py:171
+msgid "Edit filter"
+msgstr "Editar filtro"
+#: templatetags/sfilters_tags.py:86
+msgid "Remove this filter"
+msgstr "Eliminar este filtro"
+#: templatetags/sfilters_tags.py:95
+msgid "Move this filter up"
+msgstr "Subir este filtro"
+#: templatetags/sfilters_tags.py:104
+msgid "Move this filter down"
+msgstr "Bajar este filtro"
+#: views.py:87
+msgid "Failed to retrieve filters set"
+msgstr "Fallo en la recuperación de un conjunto de filtros"
+#: views.py:152 views.py:243
+msgid "Create"
+msgstr "Crear"
+#: views.py:157
+msgid "Filter created"
+msgstr "Filtro creado"
+#: views.py:174
+msgid "Update"
+msgstr "Actualizar"
+#: views.py:181
+msgid "Filter modified"
+msgstr "Filtro modificado"
+#: views.py:205
+msgid "Filter removed"
+msgstr "Filtro eliminado"
+#: views.py:206
+msgid "Failed to remove filter"
+msgstr "La eliminación del filtro falló"
+#: views.py:221
+msgid "Filters set saved"
+msgstr "Filtros guardados"
+#: views.py:237
+msgid "Filters set created"
+msgstr "Conjunto de filtros creado"
+#: views.py:241
+msgid "Create a new filters set"
+msgstr "Crear un nuevo conjunto de filtros"
+#: views.py:260
+msgid "Filters set deleted"
+msgstr "Conjunto de filtros eliminado"
+#: views.py:273
+msgid "Filters set activated"
+msgstr "Conjunto de filtros activado"
+#: views.py:303
+msgid "yes"
+msgstr "sí"
+#: views.py:307
+msgid "no"
+msgstr "no"
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy
+#, fuzzy

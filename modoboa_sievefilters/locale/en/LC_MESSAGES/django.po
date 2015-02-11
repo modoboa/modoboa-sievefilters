@@ -1,0 +1,222 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-02-11 13:54+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+#: app_settings.py:21
+msgid "ManageSieve settings"
+msgstr ""
+#: app_settings.py:24
+msgid "Server address"
+msgstr ""
+#: app_settings.py:26
+msgid "Address of your MANAGESIEVE server"
+msgstr ""
+#: app_settings.py:31
+msgid "Server port"
+msgstr ""
+#: app_settings.py:33
+msgid "Listening port of your MANAGESIEVE server"
+msgstr ""
+#: app_settings.py:38
+msgid "Connect using STARTTLS"
+msgstr ""
+#: app_settings.py:40
+msgid "Use the STARTTLS extension"
+msgstr ""
+#: app_settings.py:44
+msgid "Authentication mechanism"
+msgstr ""
+#: app_settings.py:47
+msgid "Prefered authentication mechanism"
+msgstr ""
+#: app_settings.py:55
+msgid "General"
+msgstr ""
+#: app_settings.py:59
+msgid "Editor mode"
+msgstr ""
+#: app_settings.py:61
+msgid "Select the mode you want the editor to work in"
+msgstr ""
+#: forms.py:23
+msgid "Check to activate this filters set"
+msgstr ""
+#: forms.py:76 templates/modoboa_sievefilters/guieditor.html:6
+msgid "Name"
+msgstr ""
+#: forms.py:78
+msgid "All of the following"
+msgstr ""
+#: forms.py:79
+msgid "Any of the following"
+msgstr ""
+#: forms.py:80
+msgid "All messages"
+msgstr ""
+#: forms.py:86
+msgid "contains"
+msgstr ""
+#: forms.py:87
+msgid "does not contain"
+msgstr ""
+#: forms.py:88
+msgid "is"
+msgstr ""
+#: forms.py:89
+msgid "is not"
+msgstr ""
+#: forms.py:94
+msgid "Subject"
+msgstr ""
+#: forms.py:97
+msgid "Sender"
+msgstr ""
+#: forms.py:100
+msgid "Recipient"
+msgstr ""
+#: forms.py:103
+msgid "Cc"
+msgstr ""
+#: forms.py:105
+msgid "Size"
+msgstr ""
+#: forms.py:106
+msgid "is greater than"
+msgstr ""
+#: forms.py:107
+msgid "is less than"
+msgstr ""
+#: forms.py:111
+msgid "Move message to"
+msgstr ""
+#: forms.py:113
+msgid "Redirect message to"
+msgstr ""
+#: forms.py:128
+msgid "Wrong filter name"
+msgstr ""
+#: general_callbacks.py:17 modo_extension.py:21
+#: templates/modoboa_sievefilters/index.html:4
+msgid "Message filters"
+msgstr ""
+#: lib.py:46
+msgid "Connection to MANAGESIEVE server failed, check your configuration"
+msgstr ""
+#: lib.py:94
+msgid "Not enough space on server"
+msgstr ""
+#: modo_extension.py:14
+msgid "Plugin to easily create server-side filters"
+msgstr ""
+#: modo_extension.py:20
+msgid "Sieve filters"
+msgstr ""
+#: templates/modoboa_sievefilters/filter.html:9
+msgid "Conditions"
+msgstr ""
+#: templates/modoboa_sievefilters/filter.html:20
+#: templates/modoboa_sievefilters/guieditor.html:5 views.py:102
+msgid "Actions"
+msgstr ""
+#: templates/modoboa_sievefilters/guieditor.html:7
+msgid "Active"
+msgstr ""
+#: templates/modoboa_sievefilters/guieditor.html:24
+msgid "No filter defined yet"
+msgstr ""
+#: templates/modoboa_sievefilters/index.html:82
+msgid "Filter sets"
+msgstr ""
+#: templates/modoboa_sievefilters/index.html:86
+msgid "active"
+msgstr ""
+#: templates/modoboa_sievefilters/index.html:101
+msgid ""
+"No filters set defined yet. You must create one in order to define filters."
+msgstr ""
+#: templatetags/sfilters_tags.py:17
+msgid "New filters set"
+msgstr ""
+#: templatetags/sfilters_tags.py:35 views.py:149
+msgid "New filter"
+msgstr ""
+#: templatetags/sfilters_tags.py:46
+msgid "Save filters set"
+msgstr ""
+#: templatetags/sfilters_tags.py:54
+msgid "Activate filters set"
+msgstr ""
+#: templatetags/sfilters_tags.py:59
+msgid "Remove filters set"
+msgstr ""
+#: templatetags/sfilters_tags.py:63
+msgid "Download"
+msgstr ""
+#: templatetags/sfilters_tags.py:78 views.py:171
+msgid "Edit filter"
+msgstr ""
+#: templatetags/sfilters_tags.py:86
+msgid "Remove this filter"
+msgstr ""
+#: templatetags/sfilters_tags.py:95
+msgid "Move this filter up"
+msgstr ""
+#: templatetags/sfilters_tags.py:104
+msgid "Move this filter down"
+msgstr ""
+#: views.py:87
+msgid "Failed to retrieve filters set"
+msgstr ""
+#: views.py:152 views.py:243
+msgid "Create"
+msgstr ""
+#: views.py:157
+msgid "Filter created"
+msgstr ""
+#: views.py:174
+msgid "Update"
+msgstr ""
+#: views.py:181
+msgid "Filter modified"
+msgstr ""
+#: views.py:205
+msgid "Filter removed"
+msgstr ""
+#: views.py:206
+msgid "Failed to remove filter"
+msgstr ""
+#: views.py:221
+msgid "Filters set saved"
+msgstr ""
+#: views.py:237
+msgid "Filters set created"
+msgstr ""
+#: views.py:241
+msgid "Create a new filters set"
+msgstr ""
+#: views.py:260
+msgid "Filters set deleted"
+msgstr ""
+#: views.py:273
+msgid "Filters set activated"
+msgstr ""
+#: views.py:303
+msgid "yes"
+msgstr ""
+#: views.py:307
+msgid "no"
+msgstr ""

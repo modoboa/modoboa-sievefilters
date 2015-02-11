@@ -1,0 +1,230 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Translators:
+# Damien Duponchelle <dduponchelle@gmail.com>, 2013
+# lusitan <lusitan@hushmail.com>, 2013
+# Mike C. <miguelmclara@gmail.com>, 2012
+# Mike C. <miguelmclara@gmail.com>, 2013-2014
+# Sandra Ribeiro <sandrarib@gmail.com>, 2012-2013
+# Sandra Ribeiro <sandrarib@gmail.com>, 2012
+msgid ""
+msgstr ""
+"Project-Id-Version: Modoboa\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-02-11 13:54+0100\n"
+"PO-Revision-Date: 2014-12-29 12:51+0000\n"
+"Last-Translator: Mike C. <miguelmclara@gmail.com>\n"
+"Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/"
+"modoboa/language/pt_PT/)\n"
+"Language: pt_PT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: app_settings.py:21
+msgid "ManageSieve settings"
+msgstr "Definições do MANAGESIEVE"
+#: app_settings.py:24
+msgid "Server address"
+msgstr "Endereço do Servidor"
+#: app_settings.py:26
+msgid "Address of your MANAGESIEVE server"
+msgstr "Endereço do servidor MANAGESIEVE"
+#: app_settings.py:31
+msgid "Server port"
+msgstr "Porta do Servidor"
+#: app_settings.py:33
+msgid "Listening port of your MANAGESIEVE server"
+msgstr "Porta atribuída ao servidor MANAGESIEVE"
+#: app_settings.py:38
+msgid "Connect using STARTTLS"
+msgstr "Ligar via STARTTLS"
+#: app_settings.py:40
+msgid "Use the STARTTLS extension"
+msgstr "Usar a extensão STARTLS"
+#: app_settings.py:44
+msgid "Authentication mechanism"
+msgstr "Mecanismo de autenticação"
+#: app_settings.py:47
+msgid "Prefered authentication mechanism"
+msgstr "Método de autenticação preferencial"
+#: app_settings.py:55
+msgid "General"
+msgstr "Geral"
+#: app_settings.py:59
+msgid "Editor mode"
+msgstr "Modo de edição"
+#: app_settings.py:61
+msgid "Select the mode you want the editor to work in"
+msgstr "Seleccione o modo de funcionamento do editor"
+#: forms.py:23
+msgid "Check to activate this filters set"
+msgstr "Marque para ativar estes filtros"
+#: forms.py:76 templates/modoboa_sievefilters/guieditor.html:6
+msgid "Name"
+msgstr "Nome"
+#: forms.py:78
+msgid "All of the following"
+msgstr "Todos estes"
+#: forms.py:79
+msgid "Any of the following"
+msgstr "Algum destes"
+#: forms.py:80
+msgid "All messages"
+msgstr "Todas as mensagens"
+#: forms.py:86
+msgid "contains"
+msgstr "contém"
+#: forms.py:87
+msgid "does not contain"
+msgstr "não contém"
+#: forms.py:88
+msgid "is"
+msgstr "é"
+#: forms.py:89
+msgid "is not"
+msgstr "não é"
+#: forms.py:94
+msgid "Subject"
+msgstr "Assunto"
+#: forms.py:97
+msgid "Sender"
+msgstr "Remetente"
+#: forms.py:100
+msgid "Recipient"
+msgstr "Destinatário"
+#: forms.py:103
+msgid "Cc"
+msgstr "Cc"
+#: forms.py:105
+msgid "Size"
+msgstr "Tamanho"
+#: forms.py:106
+msgid "is greater than"
+msgstr "é maior do que"
+#: forms.py:107
+msgid "is less than"
+msgstr "é menor do que"
+#: forms.py:111
+msgid "Move message to"
+msgstr "Mover mensagens para"
+#: forms.py:113
+msgid "Redirect message to"
+msgstr "Reencaminhar mensagens para"
+#: forms.py:128
+msgid "Wrong filter name"
+msgstr "Filtro inválido"
+#: general_callbacks.py:17 modo_extension.py:21
+#: templates/modoboa_sievefilters/index.html:4
+msgid "Message filters"
+msgstr "Gerir filtros"
+#: lib.py:46
+msgid "Connection to MANAGESIEVE server failed, check your configuration"
+msgstr "Ligação ao servidor MANAGESIEVE falhou, valide a configuração"
+#: lib.py:94
+msgid "Not enough space on server"
+msgstr "Espaço insuficiente no servidor"
+#: modo_extension.py:14
+msgid "Plugin to easily create server-side filters"
+msgstr "Plugin para criar facilmente filtros 'server-side'"
+#: modo_extension.py:20
+msgid "Sieve filters"
+msgstr "Filtros Sieve"
+#: templates/modoboa_sievefilters/filter.html:9
+msgid "Conditions"
+msgstr "Condições"
+#: templates/modoboa_sievefilters/filter.html:20
+#: templates/modoboa_sievefilters/guieditor.html:5 views.py:102
+msgid "Actions"
+msgstr "Ações"
+#: templates/modoboa_sievefilters/guieditor.html:7
+msgid "Active"
+msgstr "Ativo"
+#: templates/modoboa_sievefilters/guieditor.html:24
+msgid "No filter defined yet"
+msgstr "Ainda não existe nenhum filtro definido"
+#: templates/modoboa_sievefilters/index.html:82
+msgid "Filter sets"
+msgstr "Grupos de filtros"
+#: templates/modoboa_sievefilters/index.html:86
+msgid "active"
+msgstr "ativo"
+#: templates/modoboa_sievefilters/index.html:101
+msgid ""
+"No filters set defined yet. You must create one in order to define filters."
+msgstr ""
+"Não existem grupos de filtros. Terá de criar um para poder definir filtros."
+#: templatetags/sfilters_tags.py:17
+msgid "New filters set"
+msgstr "Novo grupo de filtros"
+#: templatetags/sfilters_tags.py:35 views.py:149
+msgid "New filter"
+msgstr "Novo filtro"
+#: templatetags/sfilters_tags.py:46
+msgid "Save filters set"
+msgstr "Guardar grupo de filtros"
+#: templatetags/sfilters_tags.py:54
+msgid "Activate filters set"
+msgstr "Ativar grupo de filtros"
+#: templatetags/sfilters_tags.py:59
+msgid "Remove filters set"
+msgstr "Eliminar grupo de filtros"
+#: templatetags/sfilters_tags.py:63
+msgid "Download"
+msgstr "Descarregar"
+#: templatetags/sfilters_tags.py:78 views.py:171
+msgid "Edit filter"
+msgstr "Editar filtro"
+#: templatetags/sfilters_tags.py:86
+msgid "Remove this filter"
+msgstr "Eliminar este filtro"
+#: templatetags/sfilters_tags.py:95
+msgid "Move this filter up"
+msgstr "Mover este filtro para cima"
+#: templatetags/sfilters_tags.py:104
+msgid "Move this filter down"
+msgstr "Mover este filtro para baixo"
+#: views.py:87
+msgid "Failed to retrieve filters set"
+msgstr "Falha ao recuperar os filtros definidos"
+#: views.py:152 views.py:243
+msgid "Create"
+msgstr "Criar"
+#: views.py:157
+msgid "Filter created"
+msgstr "Filtro criado"
+#: views.py:174
+msgid "Update"
+msgstr "Actualizar"
+#: views.py:181
+msgid "Filter modified"
+msgstr "Filtro modificado"
+#: views.py:205
+msgid "Filter removed"
+msgstr "Filtro removido"
+#: views.py:206
+msgid "Failed to remove filter"
+msgstr "Falha ao remover filtro"
+#: views.py:221
+msgid "Filters set saved"
+msgstr "Grupo de filtros guardado"
+#: views.py:237
+msgid "Filters set created"
+msgstr "Grupo de filtros criado"
+#: views.py:241
+msgid "Create a new filters set"
+msgstr "Criar novo grupo de filtros"
+#: views.py:260
+msgid "Filters set deleted"
+msgstr "Grupo de filtros eliminado"
+#: views.py:273
+msgid "Filters set activated"
+msgstr "Grupo de filtros ativado"
+#: views.py:303
+msgid "yes"
+msgstr "sim"
+#: views.py:307
+msgid "no"
+msgstr "não"
