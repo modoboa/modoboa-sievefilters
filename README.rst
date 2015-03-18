@@ -1,6 +1,8 @@
 modoboa-sievefilters
 ====================
 
+|landscape|
+
 The sieve filters editor of Modoboa.
 
 Installation
