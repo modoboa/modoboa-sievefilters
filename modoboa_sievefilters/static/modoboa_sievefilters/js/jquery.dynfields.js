@@ -8,7 +8,7 @@
         var $addlink = $('<a />', {
             href: '#',
             id: this.$element.attr("id") + '_rmbtn',
-            html: '<i class="fa fa-plus"></i>'
+            html: '<span class="fa fa-plus"></span>'
         });
         $("select[name*=cond_target_]").change($.proxy(this.target_change, this));
         $addlink.click($.proxy(this.addfields, this));
@@ -54,7 +54,7 @@
             return $('<a />', {
                 href: '#',
                 id: 'condition_' + this.nextid + '_rmbtn',
-                html: '<i class="fa fa-trash"></i>'
+                html: '<span class="fa fa-trash"></span>'
             }).click($.proxy(this.removefields, this));
         },
 
@@ -96,9 +96,9 @@
             }
 
             $div.append($condtarget, $condoperator, $condvalue, $rmlink);
-            $condtarget.wrap('<div class="col-lg-3 col-md-3 col-sm-3"/>');
-            $condoperator.wrap('<div class="col-lg-3 col-md-3 col-sm-3"/>');
-            $condvalue.wrap('<div class="col-lg-4 col-md-4 col-sm-4"/>');
+            $condtarget.wrap('<div class="col-sm-3"/>');
+            $condoperator.wrap('<div class="col-sm-3"/>');
+            $condvalue.wrap('<div class="col-sm-4"/>');
             this.$element.after($div);
             this.nextid++;
             this.fields_cnt++;
@@ -160,7 +160,7 @@
         var $addlink = $('<a />', {
             href: '#',
             id: this.$element.attr("id") + '_rmbtn',
-            html: '<i class="fa fa-plus"></i>'
+            html: '<span class="fa fa-plus"></span>'
         });
         $("select[name*=action_name_]").change($.proxy(this.name_change, this));
         $addlink.click($.proxy(this.addfields, this));
@@ -225,16 +225,22 @@
             return res;
         },
 
+        /**
+         * Remove current action argument(s) before a change.
+         */
         deletePrevArgs: function(id) {
             for (var cpt = 0; true; cpt++) {
                 var $arg = $("#id_action_arg_" + id + "_" + cpt);
                 if (!$arg.length) {
                     break;
                 }
-                $arg.remove();
+                $arg.parent().remove();
             }
         },
 
+        /**
+         * Method called when the action is changed.
+         */
         name_change: function(e) {
             var $target = $(e.target);
             var parts = $target.attr("name").split("_");
@@ -249,6 +255,7 @@
                 }
                 $.each(this.loadargs(parts[2], tpl), function(idx, arg) {
                     $pos.before(arg);
+                    arg.wrap('<div class="col-sm-5"/>');
                 });
             }
         },
@@ -257,7 +264,7 @@
             return $('<a />', {
                 href: '#',
                 id: 'action_' + this.nextid + '_rmbtn',
-                html: '<i class="fa fa-trash"></i>'
+                html: '<span class="fa fa-trash"></span>'
             }).click($.proxy(this.removefields, this));
         },
 
@@ -289,10 +296,10 @@
             $actioname.change($.proxy(this.name_change, this));
             $.each(args, function(idx, element) {
                 $div.append(element);
-                element.wrap('<div class="col-lg-5 col-md-5 col-sm-5"/>');
+                element.wrap('<div class="col-sm-5"/>');
             });
 
-            $actioname.wrap('<div class="col-lg-5 col-md-5 col-sm-5"/>');
+            $actioname.wrap('<div class="col-sm-5"/>');
             $div.append($rmlink);
             this.$element.after($div);
             this.nextid++;
