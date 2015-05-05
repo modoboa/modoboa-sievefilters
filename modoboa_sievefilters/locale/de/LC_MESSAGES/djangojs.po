@@ -19,18 +19,23 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
 #: static/modoboa_sievefilters/js/lib.js:14
 msgid "Remove this filter?"
 msgstr "Diesen Filter entfernen?"
+
 #: static/modoboa_sievefilters/js/lib.js:107
 msgid "Save changes?"
 msgstr "Änderungen speichern?"
+
 #: static/modoboa_sievefilters/js/lib.js:129
 msgid "Remove filters set?"
-msgstr "Diesen Filter entfernen?"
+msgstr "Diesen Filter-Satz entfernen?"
+
 #: static/modoboa_sievefilters/js/lib.js:146
 msgid "Activate this filters set?"
-msgstr "Diesen Filter aktivieren?"
+msgstr "Diesen Filter-Satz aktivieren?"
+
 #: static/modoboa_sievefilters/js/lib.js:154
 #: static/modoboa_sievefilters/js/lib.js:203
 msgid "active"
