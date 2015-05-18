@@ -21,12 +21,12 @@ from modoboa.lib.web_utils import (
 )
 
 from modoboa_admin.lib import needs_mailbox
-from modoboa.lib.imaputils import get_imapconnector
 
 from .forms import (
     FilterForm, build_filter_form_from_qdict, build_filter_form_from_filter,
     FiltersSetForm
 )
+from .imaputils import get_imapconnector
 from .lib import SieveClient, SieveClientError
 from .templatetags.sfilters_tags import fset_menu
 

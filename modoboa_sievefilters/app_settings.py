@@ -48,6 +48,26 @@ class ParametersForm(AdminParametersForm):
         widget=forms.Select(attrs={"class": "form-control"})
     )
 
+    sep2 = SeparatorField(label=_("IMAP settings"))
+
+    imap_server = forms.CharField(
+        label=_("Server address"),
+        initial="127.0.0.1",
+        help_text=_("Address of your IMAP server")
+    )
+
+    imap_secured = YesNoField(
+        label=_("Use a secured connection"),
+        initial="no",
+        help_text=_("Use a secured connection to access IMAP server")
+    )
+
+    imap_port = forms.IntegerField(
+        label=_("Server port"),
+        initial=143,
+        help_text=_("Listening port of your IMAP server")
+    )
+
 
 class UserSettings(UserParametersForm):
     app = "modoboa_sievefilters"
@@ -60,6 +80,26 @@ class UserSettings(UserParametersForm):
         choices=[("raw", "raw"), ("gui", "simplified")],
         help_text=_("Select the mode you want the editor to work in"),
         widget=InlineRadioSelect(attrs={"type": "checkbox"})
+    )
+
+    sep2 = SeparatorField(label=_("Mailboxes"))
+
+    trash_folder = forms.CharField(
+        initial="Trash",
+        label=_("Trash folder"),
+        help_text=_("Folder where deleted messages go")
+    )
+
+    sent_folder = forms.CharField(
+        initial="Sent",
+        label=_("Sent folder"),
+        help_text=_("Folder where copies of sent messages go")
+    )
+
+    drafts_folder = forms.CharField(
+        initial="Drafts",
+        label=_("Drafts folder"),
+        help_text=_("Folder where drafts go")
     )
 
     @staticmethod
