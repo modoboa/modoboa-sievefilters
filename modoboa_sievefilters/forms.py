@@ -11,7 +11,8 @@ from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext as _, ugettext_lazy
 
 from modoboa_admin.templatetags.admin_tags import gender
-from modoboa_webmail.lib import get_imapconnector
+
+from .imaputils import get_imapconnector
 
 
 class FiltersSetForm(forms.Form):
@@ -207,13 +208,13 @@ class FilterForm(forms.Form):
             else:
                 ret += [(value, fd["name"])]
             if "sub" in fd:
-                submboxes = imapc.getmboxes(user, value, unseen_messages=False)
+                submboxes = imapc.getmboxes(user, value)
                 ret += self.__build_folders_list(submboxes, user, imapc, value)
         return ret
 
     def userfolders(self, request):
         mbc = get_imapconnector(request)
-        ret = mbc.getmboxes(request.user, unseen_messages=False)
+        ret = mbc.getmboxes(request.user)
 
         folders = self.__build_folders_list(ret, request.user, mbc)
         return folders
