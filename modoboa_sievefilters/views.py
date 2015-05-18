@@ -21,7 +21,7 @@ from modoboa.lib.web_utils import (
 )
 
 from modoboa_admin.lib import needs_mailbox
-from modoboa_webmail.lib import get_imapconnector
+from modoboa.lib.imaputils import get_imapconnector
 
 from .forms import (
     FilterForm, build_filter_form_from_qdict, build_filter_form_from_filter,
