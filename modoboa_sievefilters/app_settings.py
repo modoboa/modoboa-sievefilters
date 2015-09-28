@@ -104,4 +104,4 @@ class UserSettings(UserParametersForm):
 
     @staticmethod
     def has_access(user):
-        return user.mailbox_set.count() != 0
+        return hasattr(user, "mailbox")

@@ -10,7 +10,7 @@ from modoboa.lib import events
 def menu(target, user):
     if target != "options_menu":
         return []
-    if not user.mailbox_set.count():
+    if not hasattr(user, "mailbox"):
         return []
     return [
         {"name": "sievefilters",
@@ -24,7 +24,7 @@ def menu(target, user):
 def userlogout(request):
     from .lib import SieveClient
 
-    if not request.user.mailbox_set.count():
+    if not hasattr(request.user, "mailbox"):
         return
     try:
         sc = SieveClient(user=request.user.username,
