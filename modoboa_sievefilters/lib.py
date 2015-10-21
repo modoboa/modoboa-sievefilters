@@ -38,7 +38,8 @@ class SieveClient(object):
         if authmech == "AUTO":
             authmech = None
         try:
-            ret = self.msc.connect(user, password, use_starttls, authmech)
+            ret = self.msc.connect(
+                user, password, starttls=use_starttls, authmech=authmech)
         except Error:
             ret = False
         if not ret:
