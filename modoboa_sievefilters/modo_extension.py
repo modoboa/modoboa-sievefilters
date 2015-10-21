@@ -10,7 +10,7 @@ from modoboa.lib import parameters
 class SieveFilters(ModoExtension):
     name = "modoboa_sievefilters"
     label = "Sieve filters"
-    version = "1.0.1"
+    version = "1.0.2"
     description = ugettext_lazy("Plugin to easily create server-side filters")
     url = "sfilters"
     available_for_topredirection = True

@@ -57,7 +57,7 @@ def read(fname):
 
 setup(
     name="modoboa-sievefilters",
-    version='1.0.1',
+    version='1.0.2',
     url='http://modoboa.org/',
     license='MIT',
     description="The sieve filters editor of Modoboa",
