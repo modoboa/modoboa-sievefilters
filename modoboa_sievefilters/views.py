@@ -13,14 +13,13 @@ from django.shortcuts import render
 from django.template.loader import render_to_string
 from django.utils.translation import ugettext as _
 
+from modoboa.admin.lib import needs_mailbox
 from modoboa.lib import parameters
 from modoboa.lib.connections import ConnectionError
 from modoboa.lib.exceptions import BadRequest
 from modoboa.lib.web_utils import (
     _render_error, ajax_response, render_to_json_response
 )
-
-from modoboa_admin.lib import needs_mailbox
 
 from .forms import (
     FilterForm, build_filter_form_from_qdict, build_filter_form_from_filter,

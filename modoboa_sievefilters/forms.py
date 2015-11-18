@@ -11,7 +11,7 @@ from django.utils.html import conditional_escape
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext as _, ugettext_lazy
 
-from modoboa_admin.templatetags.admin_tags import gender
+from modoboa.admin.templatetags.admin_tags import gender
 
 from .imaputils import get_imapconnector
 
