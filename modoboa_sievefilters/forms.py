@@ -3,14 +3,15 @@
 from sievelib.commands import SizeCommand, TrueCommand
 
 from django import forms
-from django.forms.widgets import RadioFieldRenderer, RadioSelect, RadioInput
+from django.forms.widgets import (
+    RadioFieldRenderer, RadioSelect, RadioChoiceInput)
 from django.http import QueryDict
 from django.utils.encoding import force_unicode
 from django.utils.html import conditional_escape
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext as _, ugettext_lazy
 
-from modoboa_admin.templatetags.admin_tags import gender
+from modoboa.admin.templatetags.admin_tags import gender
 
 from .imaputils import get_imapconnector
 
@@ -26,7 +27,7 @@ class FiltersSetForm(forms.Form):
     )
 
 
-class CustomRadioInput(RadioInput):
+class CustomRadioInput(RadioChoiceInput):
 
     def __unicode__(self):
         return self.render()
