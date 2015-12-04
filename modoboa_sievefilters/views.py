@@ -89,16 +89,20 @@ def getfs(request, name):
         return ajax_response(request, "ko", respmsg=error)
 
     if editormode == "raw":
-        htmlcontent = render_to_string("modoboa_sievefilters/rawfilter.html", dict(
-            name=name, scriptcontent=content
-        ))
+        htmlcontent = render_to_string(
+            "modoboa_sievefilters/rawfilter.html", {
+                "name": name, "scriptcontent": content
+            })
     else:
-        htmlcontent = render_to_string("modoboa_sievefilters/guieditor.html", dict(
-            fs=content
-        ))
+        htmlcontent = render_to_string(
+            "modoboa_sievefilters/guieditor.html", {"fs": content})
 
-    menu = '<ul id="fsetmenu" class="nav nav-sidebar"><li class="nav-header">%s</li>%s</ul>' % \
-        (_("Actions"), fset_menu(editormode, name))
+    menu = (
+        '<ul id="fsetmenu" class="nav nav-sidebar">'
+        '<li class="nav-header">{}</li>{}</ul>'.format(
+            _("Actions"), fset_menu(editormode, name)
+        )
+    )
     resp = dict(menu=menu, content=htmlcontent)
     return render_to_json_response(resp)
 
@@ -135,7 +139,7 @@ def submitfilter(
                 )
         except (BadArgument, BadValue) as inst:
             raise BadRequest(str(inst))
-        sc.pushscript(fset.name, str(fset))
+        sc.pushscript(fset.name, "{}".format(fset))
         return render_to_json_response(okmsg)
 
     return render_to_json_response({'form_errors': form.errors}, status=400)
