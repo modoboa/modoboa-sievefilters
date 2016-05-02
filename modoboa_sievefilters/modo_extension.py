@@ -6,11 +6,13 @@ from django.utils.translation import ugettext_lazy
 from modoboa.core.extensions import ModoExtension, exts_pool
 from modoboa.lib import parameters
 
+from . import __version__
+
 
 class SieveFilters(ModoExtension):
     name = "modoboa_sievefilters"
     label = "Sieve filters"
-    version = "1.0.4"
+    version = __version__
     description = ugettext_lazy("Plugin to easily create server-side filters")
     url = "sfilters"
     available_for_topredirection = True
