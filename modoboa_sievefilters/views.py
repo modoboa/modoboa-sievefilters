@@ -98,8 +98,8 @@ def getfs(request, name):
             "modoboa_sievefilters/guieditor.html", {"fs": content})
 
     menu = (
-        '<ul id="fsetmenu" class="nav nav-sidebar">'
-        '<li class="nav-header">{}</li>{}</ul>'.format(
+        u"<ul id='fsetmenu' class='nav nav-sidebar'>"
+        u"<li class='nav-header'>{}</li>{}</ul>".format(
             _("Actions"), fset_menu(editormode, name)
         )
     )
