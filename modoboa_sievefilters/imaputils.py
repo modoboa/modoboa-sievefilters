@@ -10,9 +10,10 @@ from functools import wraps
 
 from django.utils.translation import ugettext as _
 
-from modoboa.lib import parameters, imap_utf7  # NOQA
+from modoboa.lib import imap_utf7  # NOQA
 from modoboa.lib.connections import ConnectionsManager
 from modoboa.lib.exceptions import ModoboaException, InternalError
+from modoboa.parameters import tools as param_tools
 
 # imaplib.Debug = 4
 
@@ -67,8 +68,10 @@ class IMAPconnector(object):
 
     def __init__(self, user=None, password=None):
         self.__hdelimiter = None
-        self.address = parameters.get_admin("IMAP_SERVER")
-        self.port = int(parameters.get_admin("IMAP_PORT"))
+        self.conf = dict(
+            param_tools.get_global_parameters("modoboa_sievefilters"))
+        self.address = self.conf["imap_server"]
+        self.port = self.conf["imap_port"]
         self.login(user, password)
 
     def _cmd(self, name, *args, **kwargs):
@@ -124,7 +127,8 @@ class IMAPconnector(object):
             data = self._cmd("LIST", "", "")
             m = self.list_response_pattern.match(data[0])
             if m is None:
-                raise InternalError(_("Failed to retrieve hierarchy delimiter"))
+                raise InternalError(
+                    _("Failed to retrieve hierarchy delimiter"))
             self.__hdelimiter = m.group('delimiter')
         return self.__hdelimiter
 
@@ -161,8 +165,7 @@ class IMAPconnector(object):
         if isinstance(passwd, unicode):
             passwd = passwd.encode("utf-8")
         try:
-            secured = parameters.get_admin("IMAP_SECURED")
-            if secured == "yes":
+            if self.conf["imap_secured"]:
                 self.m = imaplib.IMAP4_SSL(self.address, self.port)
             else:
                 self.m = imaplib.IMAP4(self.address, self.port)
@@ -281,12 +284,12 @@ class IMAPconnector(object):
         else:
             md_mailboxes = [
                 {"name": "INBOX", "class": "fa fa-inbox"},
-                {"name": parameters.get_user(user, "DRAFTS_FOLDER"),
+                {"name": user.parameters.get_value("drafts_folder"),
                  "class": "fa fa-file"},
                 {"name": 'Junk', "class": "fa fa-fire"},
-                {"name": parameters.get_user(user, "SENT_FOLDER"),
+                {"name": user.parameters.get_value("sent_folder"),
                  "class": "fa fa-envelope"},
-                {"name": parameters.get_user(user, "TRASH_FOLDER"),
+                {"name": user.parameters.get_value("trash_folder"),
                  "class": "fa fa-trash"}
             ]
         self._listmboxes(topmailbox, md_mailboxes)

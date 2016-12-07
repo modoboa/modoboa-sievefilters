@@ -14,7 +14,6 @@ from django.template.loader import render_to_string
 from django.utils.translation import ugettext as _
 
 from modoboa.admin.lib import needs_mailbox
-from modoboa.lib import parameters
 from modoboa.lib.connections import ConnectionError
 from modoboa.lib.exceptions import BadRequest
 from modoboa.lib.web_utils import (
@@ -75,7 +74,7 @@ def get_templates(request, ftype):
 def getfs(request, name):
     sc = SieveClient(user=request.user.username,
                      password=request.session["password"])
-    editormode = parameters.get_user(request.user, "EDITOR_MODE")
+    editormode = request.user.parameters.get_value("editor_mode")
     error = None
     try:
         content = sc.getscript(name, format=editormode)
@@ -173,7 +172,8 @@ def editfilter(request, setname, fname, tplname="modoboa_sievefilters/filter.htm
     ctx = dict(
         title=_("Edit filter"),
         formid="filterform",
-        action=reverse("modoboa_sievefilters:filter_change", args=[setname, fname]),
+        action=reverse("modoboa_sievefilters:filter_change",
+                       args=[setname, fname]),
         action_label=_("Update"),
         action_classes="submit"
     )
@@ -239,7 +239,8 @@ def new_filters_set(request, tplname="common/generic_modal_form.html"):
                 "active": form.cleaned_data["active"],
                 "respmsg": _("Filters set created")
             })
-        return render_to_json_response({'form_errors': form.errors}, status=400)
+        return render_to_json_response(
+            {'form_errors': form.errors}, status=400)
 
     ctx = {"title": _("Create a new filters set"),
            "formid": "newfiltersset",
