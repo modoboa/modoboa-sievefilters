@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Modoboa\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-04 14:16+0100\n"
+"POT-Creation-Date: 2017-02-04 17:19+0100\n"
 "PO-Revision-Date: 2015-10-11 11:44+0000\n"
 "Last-Translator: Rocco <mors10@hotmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/tonio/modoboa/language/"
@@ -126,81 +126,85 @@ msgstr ""
 msgid "Check to activate this filters set"
 msgstr "Seleziona per attivare questo insieme di filtri"
 
-#: forms.py:79 templates/modoboa_sievefilters/guieditor.html:6
+#: forms.py:80 templates/modoboa_sievefilters/guieditor.html:6
 msgid "Name"
 msgstr "Nome"
 
-#: forms.py:81
+#: forms.py:82
 msgid "All of the following"
 msgstr "Tutti i seguenti"
 
-#: forms.py:82
+#: forms.py:83
 msgid "Any of the following"
 msgstr "Alcuni dei seguenti"
 
-#: forms.py:83
+#: forms.py:84
 msgid "All messages"
 msgstr "Tutti i messaggi"
 
-#: forms.py:89
+#: forms.py:90
 msgid "contains"
 msgstr "contiene"
 
-#: forms.py:90
+#: forms.py:91
 msgid "does not contain"
 msgstr "non contiene"
 
-#: forms.py:91
+#: forms.py:92
 msgid "is"
 msgstr "è"
 
-#: forms.py:92
+#: forms.py:93
 msgid "is not"
 msgstr "non è"
 
-#: forms.py:97
+#: forms.py:98
 msgid "Subject"
 msgstr "Oggetto"
 
-#: forms.py:100
+#: forms.py:101
 msgid "Sender"
 msgstr "Mittente"
 
-#: forms.py:103
+#: forms.py:104
 msgid "Recipient"
 msgstr "Destinatario"
 
-#: forms.py:106
+#: forms.py:107
 msgid "Cc"
 msgstr "Cc"
 
-#: forms.py:108
+#: forms.py:109
 msgid "Size"
 msgstr "Dimensione"
 
-#: forms.py:109
+#: forms.py:110
 msgid "is greater than"
 msgstr "è maggiore di"
 
-#: forms.py:110
+#: forms.py:111
 msgid "is less than"
 msgstr "è minore di"
 
-#: forms.py:114
+#: forms.py:115
 msgid "Move message to"
 msgstr "Sposta il messaggio in"
 
-#: forms.py:116
+#: forms.py:117
 msgid "Redirect message to"
 msgstr "Ridireziona il messaggio a"
 
-#: forms.py:118
+#: forms.py:119
 #, fuzzy
 #| msgid "Redirect message to"
 msgid "Reject message"
 msgstr "Ridireziona il messaggio a"
 
-#: forms.py:133
+#: forms.py:121
+msgid "Stop processing"
+msgstr ""
+
+#: forms.py:134
 msgid "Wrong filter name"
 msgstr "Nome del filtro errato"
 

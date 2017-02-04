@@ -68,6 +68,7 @@ class CustomRadioSelect(RadioSelect):
 
 
 class FilterForm(forms.Form):
+    """A dynamic form to edit a filter."""
 
     def __init__(self, conditions, actions, request, *args, **kwargs):
         super(FilterForm, self).__init__(*args, **kwargs)
@@ -117,6 +118,7 @@ class FilterForm(forms.Form):
              "args": [{"type": "string"}]},
             {"name": "reject", "label": _("Reject message"),
              "args": [{"type": "string"}]},
+            {"name": "stop", "label": _("Stop processing")},
         ]
 
         self.conds_cnt = 0
@@ -124,16 +126,16 @@ class FilterForm(forms.Form):
             getattr(self, "_build_%s_field" % c[0])(c[1], c[2])
         self.actions_cnt = 0
         for a in actions:
-            getattr(self, "_build_%s_field" % a[0])(request, a[1])
+            getattr(self, "_build_%s_field" % a[0])(request, *a[1:])
 
     def clean_name(self):
-        """Check that name does not contain strange chars.
-        """
-        if '#' in self.cleaned_data["name"]:
+        """Check that name does not contain strange chars."""
+        if "#" in self.cleaned_data["name"]:
             raise forms.ValidationError(_("Wrong filter name"))
         return self.cleaned_data["name"]
 
     def _build_header_field(self, name, op, value):
+        """Add a new header field to form."""
         targets = []
         ops = []
         vfield = None
@@ -170,15 +172,16 @@ class FilterForm(forms.Form):
     def _build_size_field(self, op, value):
         self._build_header_field("size", op, value)
 
-    def _build_action_field(self, request, name, value):
+    def _build_action_field(self, request, name, value=None):
+        """Add a new action field to form."""
         actions = []
         args = None
         for tpl in self.action_templates:
             actions += [(tpl["name"], tpl["label"]), ]
             if name == tpl["name"]:
-                args = tpl["args"]
-        self.fields["action_name_%d" % self.actions_cnt] = \
-            forms.ChoiceField(initial=name, choices=actions)
+                args = tpl.get("args", [])
+        self.fields["action_name_%d" % self.actions_cnt] = (
+            forms.ChoiceField(initial=name, choices=actions))
         for cnt in xrange(0, len(args)):
             arg = args[cnt]
             aname = "action_arg_%d_%d" % (self.actions_cnt, cnt)
@@ -201,6 +204,9 @@ class FilterForm(forms.Form):
 
     def _build_fileinto_field(self, request, value):
         self._build_action_field(request, "fileinto", value)
+
+    def _build_stop_field(self, request):
+        self._build_action_field(request, "stop")
 
     def __build_folders_list(self, folders, user, imapc, parentmb=None):
         ret = []
@@ -268,7 +274,8 @@ def build_filter_form_from_qdict(request):
                 qdict["cond_operator_%d" % cpt] = (
                     request.POST["cond_operator_%d" % i]
                 )
-                qdict["cond_value_%d" % cpt] = request.POST["cond_value_%d" % i]
+                qdict["cond_value_%d" % cpt] = (
+                    request.POST["cond_value_%d" % i])
                 condtarget = request.POST["cond_target_%d" % i]
                 condop = request.POST["cond_operator_%d" % i]
                 condvalue = request.POST["cond_value_%d" % i]
