@@ -1,225 +1,351 @@
-# Modoboa french translation
-# Copyright (C) 2009-2013
-# This file is distributed under the same license as the Modoboa package.
-#
-# Antoine Nguyen <tonio@ngyn.org>, 2009-2013.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Antoine Nguyen <tonio@ngyn.org>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: modoboa-1.1.0\n"
+"Project-Id-Version: Modoboa\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-11 13:54+0100\n"
-"PO-Revision-Date: 2011-01-07 10:00+100\n"
+"POT-Creation-Date: 2017-02-04 14:16+0100\n"
+"PO-Revision-Date: 2017-02-04 13:20+0000\n"
 "Last-Translator: Antoine Nguyen <tonio@ngyn.org>\n"
-"Language-Team: FR <tonio@ngyn.org>\n"
-"Language: Français\n"
+"Language-Team: French (http://www.transifex.com/tonio/modoboa/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
 #: app_settings.py:21
 msgid "ManageSieve settings"
 msgstr "Paramètres ManageSieve"
-#: app_settings.py:24
+
+#: app_settings.py:24 app_settings.py:54
 msgid "Server address"
 msgstr "Adresse du serveur"
+
 #: app_settings.py:26
 msgid "Address of your MANAGESIEVE server"
 msgstr "Adresse de votre serveur ManageSieve"
-#: app_settings.py:31
+
+#: app_settings.py:31 app_settings.py:66
 msgid "Server port"
 msgstr "Port utilisé par le serveur"
+
 #: app_settings.py:33
 msgid "Listening port of your MANAGESIEVE server"
 msgstr "Port d'écoute de votre serveur ManageSieve"
+
 #: app_settings.py:38
 msgid "Connect using STARTTLS"
 msgstr "Se connecter en utilisant STARTTLS"
+
 #: app_settings.py:40
 msgid "Use the STARTTLS extension"
 msgstr "Utiliser l'extension STARTTLS"
+
 #: app_settings.py:44
 msgid "Authentication mechanism"
 msgstr "Méthode d'authentification"
+
 #: app_settings.py:47
 msgid "Prefered authentication mechanism"
 msgstr "Méthode d'authentification préférée"
-#: app_settings.py:55
+
+#: app_settings.py:51
+msgid "IMAP settings"
+msgstr "Paramètres IMAP"
+
+#: app_settings.py:56
+msgid "Address of your IMAP server"
+msgstr "Adresse de votre serveur IMAP"
+
+#: app_settings.py:60
+msgid "Use a secured connection"
+msgstr "Utiliser une connexion sécurisée"
+
+#: app_settings.py:62
+msgid "Use a secured connection to access IMAP server"
+msgstr "Utiliser une connexion sécurisée pour accéder au serveur IMAP"
+
+#: app_settings.py:68
+msgid "Listening port of your IMAP server"
+msgstr "Port d'écoute de votre serveur IMAP"
+
+#: app_settings.py:75
 msgid "General"
 msgstr "Général"
-#: app_settings.py:59
+
+#: app_settings.py:79
 msgid "Editor mode"
 msgstr "Mode de l'editeur"
-#: app_settings.py:61
+
+#: app_settings.py:81
 msgid "Select the mode you want the editor to work in"
 msgstr "Sélectionner le mode de fonctionnement de l'éditeur"
-#: forms.py:23
+
+#: app_settings.py:85
+msgid "Mailboxes"
+msgstr "Boîtes aux lettres"
+
+#: app_settings.py:89
+msgid "Trash folder"
+msgstr "Dossier corbeille"
+
+#: app_settings.py:90
+msgid "Folder where deleted messages go"
+msgstr "Dossier où vont les messages supprimés"
+
+#: app_settings.py:95
+msgid "Sent folder"
+msgstr "Dossier d'envoi"
+
+#: app_settings.py:96
+msgid "Folder where copies of sent messages go"
+msgstr "Dossier où sont copiés les messages envoyés"
+
+#: app_settings.py:101
+msgid "Drafts folder"
+msgstr "Dossier brouillon"
+
+#: app_settings.py:102
+msgid "Folder where drafts go"
+msgstr "Dossier où sont stockés les brouillons"
+
+#: forms.py:26
 msgid "Check to activate this filters set"
 msgstr "Cocher pour activer ce jeu de filtres"
-#: forms.py:76 templates/modoboa_sievefilters/guieditor.html:6
+
+#: forms.py:79 templates/modoboa_sievefilters/guieditor.html:6
 msgid "Name"
 msgstr "Nom"
-#: forms.py:78
+
+#: forms.py:81
 msgid "All of the following"
 msgstr "Toutes les conditions suivantes"
-#: forms.py:79
+
+#: forms.py:82
 msgid "Any of the following"
 msgstr "Au moins une des conditions suivantes"
-#: forms.py:80
+
+#: forms.py:83
 msgid "All messages"
 msgstr "Tous les messages"
-#: forms.py:86
+
+#: forms.py:89
 msgid "contains"
 msgstr "contient"
-#: forms.py:87
+
+#: forms.py:90
 msgid "does not contain"
 msgstr "ne contient pas"
-#: forms.py:88
+
+#: forms.py:91
 msgid "is"
 msgstr "est"
-#: forms.py:89
+
+#: forms.py:92
 msgid "is not"
 msgstr "n'est pas"
-#: forms.py:94
+
+#: forms.py:97
 msgid "Subject"
 msgstr "Sujet"
-#: forms.py:97
+
+#: forms.py:100
 msgid "Sender"
 msgstr "Expéditeur"
-#: forms.py:100
+
+#: forms.py:103
 msgid "Recipient"
 msgstr "Destinataire"
-#: forms.py:103
+
+#: forms.py:106
 msgid "Cc"
 msgstr "Cc"
-#: forms.py:105
+
+#: forms.py:108
 msgid "Size"
 msgstr "Taille"
-#: forms.py:106
+
+#: forms.py:109
 msgid "is greater than"
 msgstr "est supérieure à"
-#: forms.py:107
+
+#: forms.py:110
 msgid "is less than"
 msgstr "est inférieure à"
-#: forms.py:111
+
+#: forms.py:114
 msgid "Move message to"
 msgstr "Déplacer le message vers"
-#: forms.py:113
+
+#: forms.py:116
 msgid "Redirect message to"
 msgstr "Rediriger le message vers"
-#: forms.py:128
+
+#: forms.py:118
+msgid "Reject message"
+msgstr "Rejeter le message"
+
+#: forms.py:133
 msgid "Wrong filter name"
 msgstr "Nom de filtre invalide"
-#: general_callbacks.py:17 modo_extension.py:21
+
+#: general_callbacks.py:17 modo_extension.py:23
 #: templates/modoboa_sievefilters/index.html:4
 msgid "Message filters"
 msgstr "Filtres de messages"
-#: lib.py:46
+
+#: imaputils.py:127
+msgid "Failed to retrieve hierarchy delimiter"
+msgstr "Impossible de récupérer le délimiteur de hierarchie"
+
+#: imaputils.py:170
+#, python-format
+msgid "Connection to IMAP server failed: %s"
+msgstr "Échec de connexion au serveur IMAP : %s"
+
+#: lib.py:47
 msgid "Connection to MANAGESIEVE server failed, check your configuration"
-msgstr ""
-"La connexion au serveur ManageSieve a échoué, vérifiez votre configuration"
-#: lib.py:94
+msgstr "La connexion au serveur ManageSieve a échoué, vérifiez votre configuration"
+
+#: lib.py:95
 msgid "Not enough space on server"
 msgstr "Pas assez d'espace sur le serveur"
-#: modo_extension.py:14
+
+#: modo_extension.py:16
 msgid "Plugin to easily create server-side filters"
 msgstr "Extension pour créer simplement des filtres côté serveur"
-#: modo_extension.py:20
+
+#: modo_extension.py:22
 msgid "Sieve filters"
 msgstr "Filtres Sieve"
+
 #: templates/modoboa_sievefilters/filter.html:9
 msgid "Conditions"
 msgstr "Conditions"
+
 #: templates/modoboa_sievefilters/filter.html:20
-#: templates/modoboa_sievefilters/guieditor.html:5 views.py:102
+#: templates/modoboa_sievefilters/guieditor.html:5 views.py:103
 msgid "Actions"
 msgstr "Actions"
+
 #: templates/modoboa_sievefilters/guieditor.html:7
 msgid "Active"
 msgstr "Actif"
+
 #: templates/modoboa_sievefilters/guieditor.html:24
 msgid "No filter defined yet"
 msgstr "Aucun filtre défini."
+
 #: templates/modoboa_sievefilters/index.html:82
 msgid "Filter sets"
 msgstr "Jeux de filtres"
+
 #: templates/modoboa_sievefilters/index.html:86
 msgid "active"
 msgstr "actif"
+
 #: templates/modoboa_sievefilters/index.html:101
 msgid ""
 "No filters set defined yet. You must create one in order to define filters."
-msgstr ""
-"Aucun jeu de filtres défini. Vous devez en créer un pour pouvoir définir des "
-"filtres."
-#: templatetags/sfilters_tags.py:17
+msgstr "Aucun jeu de filtres défini. Vous devez en créer un pour pouvoir définir des filtres."
+
+#: templatetags/sfilters_tags.py:19
 msgid "New filters set"
 msgstr "Nouveau jeu de filtres"
-#: templatetags/sfilters_tags.py:35 views.py:149
+
+#: templatetags/sfilters_tags.py:37 views.py:152
 msgid "New filter"
 msgstr "Nouveau filtre"
-#: templatetags/sfilters_tags.py:46
+
+#: templatetags/sfilters_tags.py:48
 msgid "Save filters set"
 msgstr "Sauvegarder le jeu de filtres"
-#: templatetags/sfilters_tags.py:54
+
+#: templatetags/sfilters_tags.py:56
 msgid "Activate filters set"
 msgstr "Activer le jeu de filtres"
-#: templatetags/sfilters_tags.py:59
+
+#: templatetags/sfilters_tags.py:61
 msgid "Remove filters set"
 msgstr "Supprimer le jeu de filtres"
-#: templatetags/sfilters_tags.py:63
+
+#: templatetags/sfilters_tags.py:65
 msgid "Download"
 msgstr "Télécharger"
-#: templatetags/sfilters_tags.py:78 views.py:171
+
+#: templatetags/sfilters_tags.py:80 views.py:174
 msgid "Edit filter"
 msgstr "Editer le filtre"
-#: templatetags/sfilters_tags.py:86
+
+#: templatetags/sfilters_tags.py:88
 msgid "Remove this filter"
 msgstr "Supprimer ce filtre"
-#: templatetags/sfilters_tags.py:95
+
+#: templatetags/sfilters_tags.py:97
 msgid "Move this filter up"
 msgstr "Déplacer ce filtre vers le haut"
-#: templatetags/sfilters_tags.py:104
+
+#: templatetags/sfilters_tags.py:106
 msgid "Move this filter down"
 msgstr "Déplacer ce filtre vers le bas"
-#: views.py:87
+
+#: views.py:86
 msgid "Failed to retrieve filters set"
 msgstr "Impossible de récuperer le jeu de filtres"
-#: views.py:152 views.py:243
+
+#: views.py:155 views.py:246
 msgid "Create"
 msgstr "Créer"
-#: views.py:157
+
+#: views.py:160
 msgid "Filter created"
 msgstr "Filtre créé"
-#: views.py:174
+
+#: views.py:177
 msgid "Update"
 msgstr "Mettre à jour"
-#: views.py:181
+
+#: views.py:184
 msgid "Filter modified"
 msgstr "Filtre modifié"
-#: views.py:205
+
+#: views.py:208
 msgid "Filter removed"
 msgstr "Filtre supprimé"
-#: views.py:206
+
+#: views.py:209
 msgid "Failed to remove filter"
 msgstr "Impossible de supprimer le filtre"
-#: views.py:221
+
+#: views.py:224
 msgid "Filters set saved"
 msgstr "Jeu de filtres sauvegardé"
-#: views.py:237
+
+#: views.py:240
 msgid "Filters set created"
 msgstr "Jeu de filtres créé"
-#: views.py:241
+
+#: views.py:244
 msgid "Create a new filters set"
 msgstr "Créer un nouveau jeu de filtres"
-#: views.py:260
+
+#: views.py:263
 msgid "Filters set deleted"
 msgstr "Jeu de filtres supprimé"
-#: views.py:273
+
+#: views.py:276
 msgid "Filters set activated"
 msgstr "Jeu de filtres activé"
-#: views.py:303
+
+#: views.py:306
 msgid "yes"
 msgstr "oui"
-#: views.py:307
+
+#: views.py:310
 msgid "no"
 msgstr "non"

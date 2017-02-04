@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Modoboa\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-11 13:54+0100\n"
+"POT-Creation-Date: 2017-02-04 14:16+0100\n"
 "PO-Revision-Date: 2015-01-06 10:05+0000\n"
 "Last-Translator: Miroslav Abrahám <miris@kunago.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/"
@@ -18,209 +18,348 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
 #: app_settings.py:21
 msgid "ManageSieve settings"
 msgstr "Nastavení ManageSieve"
-#: app_settings.py:24
+
+#: app_settings.py:24 app_settings.py:54
 msgid "Server address"
 msgstr "Adresa serveru"
+
 #: app_settings.py:26
 msgid "Address of your MANAGESIEVE server"
 msgstr "Adresa vašeho serveru ManegeSieve"
-#: app_settings.py:31
+
+#: app_settings.py:31 app_settings.py:66
 msgid "Server port"
 msgstr "Port serveru"
+
 #: app_settings.py:33
 msgid "Listening port of your MANAGESIEVE server"
 msgstr "Port, na kterém naslouchá váš ManageSieve server"
+
 #: app_settings.py:38
 msgid "Connect using STARTTLS"
 msgstr "Připojit pomocí STARTTLS"
+
 #: app_settings.py:40
 msgid "Use the STARTTLS extension"
 msgstr "Použít rozšíření STARTTLS"
+
 #: app_settings.py:44
 msgid "Authentication mechanism"
 msgstr "Režim ověření"
+
 #: app_settings.py:47
 msgid "Prefered authentication mechanism"
 msgstr "Preferovaný režim ověření"
-#: app_settings.py:55
+
+#: app_settings.py:51
+#, fuzzy
+#| msgid "ManageSieve settings"
+msgid "IMAP settings"
+msgstr "Nastavení ManageSieve"
+
+#: app_settings.py:56
+#, fuzzy
+#| msgid "Address of your MANAGESIEVE server"
+msgid "Address of your IMAP server"
+msgstr "Adresa vašeho serveru ManegeSieve"
+
+#: app_settings.py:60
+msgid "Use a secured connection"
+msgstr ""
+
+#: app_settings.py:62
+msgid "Use a secured connection to access IMAP server"
+msgstr ""
+
+#: app_settings.py:68
+#, fuzzy
+#| msgid "Listening port of your MANAGESIEVE server"
+msgid "Listening port of your IMAP server"
+msgstr "Port, na kterém naslouchá váš ManageSieve server"
+
+#: app_settings.py:75
 msgid "General"
 msgstr "Obecné"
-#: app_settings.py:59
+
+#: app_settings.py:79
 msgid "Editor mode"
 msgstr "Režim úpravy"
-#: app_settings.py:61
+
+#: app_settings.py:81
 msgid "Select the mode you want the editor to work in"
 msgstr "Zvolte režim editoru textu, ve kterém si přejete pracovat"
-#: forms.py:23
+
+#: app_settings.py:85
+msgid "Mailboxes"
+msgstr ""
+
+#: app_settings.py:89
+msgid "Trash folder"
+msgstr ""
+
+#: app_settings.py:90
+msgid "Folder where deleted messages go"
+msgstr ""
+
+#: app_settings.py:95
+msgid "Sent folder"
+msgstr ""
+
+#: app_settings.py:96
+msgid "Folder where copies of sent messages go"
+msgstr ""
+
+#: app_settings.py:101
+msgid "Drafts folder"
+msgstr ""
+
+#: app_settings.py:102
+msgid "Folder where drafts go"
+msgstr ""
+
+#: forms.py:26
 msgid "Check to activate this filters set"
 msgstr "Zatrhněte pole pro povolení této sady filtrů"
-#: forms.py:76 templates/modoboa_sievefilters/guieditor.html:6
+
+#: forms.py:79 templates/modoboa_sievefilters/guieditor.html:6
 msgid "Name"
 msgstr "Jméno"
-#: forms.py:78
+
+#: forms.py:81
 msgid "All of the following"
 msgstr "Všechna pravidla"
-#: forms.py:79
+
+#: forms.py:82
 msgid "Any of the following"
 msgstr "Alespoň jedno z pravidel"
-#: forms.py:80
+
+#: forms.py:83
 msgid "All messages"
 msgstr "Všechny zprávy"
-#: forms.py:86
+
+#: forms.py:89
 msgid "contains"
 msgstr "obsahuje"
-#: forms.py:87
+
+#: forms.py:90
 msgid "does not contain"
 msgstr "neobsahuje"
-#: forms.py:88
+
+#: forms.py:91
 msgid "is"
 msgstr "je"
-#: forms.py:89
+
+#: forms.py:92
 msgid "is not"
 msgstr "není"
-#: forms.py:94
+
+#: forms.py:97
 msgid "Subject"
 msgstr "Předmět"
-#: forms.py:97
+
+#: forms.py:100
 msgid "Sender"
 msgstr "Odesílatel"
-#: forms.py:100
+
+#: forms.py:103
 msgid "Recipient"
 msgstr "Příjemce"
-#: forms.py:103
+
+#: forms.py:106
 msgid "Cc"
 msgstr "Kopie"
-#: forms.py:105
+
+#: forms.py:108
 msgid "Size"
 msgstr "Velikost"
-#: forms.py:106
+
+#: forms.py:109
 msgid "is greater than"
 msgstr "Je větší než"
-#: forms.py:107
+
+#: forms.py:110
 msgid "is less than"
 msgstr "Je menší než"
-#: forms.py:111
+
+#: forms.py:114
 msgid "Move message to"
 msgstr "Přesunout zprávu do"
-#: forms.py:113
+
+#: forms.py:116
 msgid "Redirect message to"
 msgstr "Přesměrovat zprávu na"
-#: forms.py:128
+
+#: forms.py:118
+#, fuzzy
+#| msgid "Redirect message to"
+msgid "Reject message"
+msgstr "Přesměrovat zprávu na"
+
+#: forms.py:133
 msgid "Wrong filter name"
 msgstr "Chybný název filtru"
-#: general_callbacks.py:17 modo_extension.py:21
+
+#: general_callbacks.py:17 modo_extension.py:23
 #: templates/modoboa_sievefilters/index.html:4
 msgid "Message filters"
 msgstr "Filtry zpráv"
-#: lib.py:46
+
+#: imaputils.py:127
+#, fuzzy
+#| msgid "Failed to retrieve filters set"
+msgid "Failed to retrieve hierarchy delimiter"
+msgstr "Nebylo možné získat sadu filtrů"
+
+#: imaputils.py:170
+#, fuzzy, python-format
+#| msgid "Connection to MANAGESIEVE server failed, check your configuration"
+msgid "Connection to IMAP server failed: %s"
+msgstr "Spojení se serverem ManageSieve selhalo, zkontrolujte nastavení"
+
+#: lib.py:47
 msgid "Connection to MANAGESIEVE server failed, check your configuration"
 msgstr "Spojení se serverem ManageSieve selhalo, zkontrolujte nastavení"
-#: lib.py:94
+
+#: lib.py:95
 msgid "Not enough space on server"
 msgstr "Nedostatek prostoru na serveru"
-#: modo_extension.py:14
+
+#: modo_extension.py:16
 msgid "Plugin to easily create server-side filters"
 msgstr "Doplněk pro jednoduchou tvorbu filtrů zpráv na serveru"
-#: modo_extension.py:20
+
+#: modo_extension.py:22
 msgid "Sieve filters"
 msgstr "Sieve filtry"
+
 #: templates/modoboa_sievefilters/filter.html:9
 msgid "Conditions"
 msgstr "Podmínky"
+
 #: templates/modoboa_sievefilters/filter.html:20
-#: templates/modoboa_sievefilters/guieditor.html:5 views.py:102
+#: templates/modoboa_sievefilters/guieditor.html:5 views.py:103
 msgid "Actions"
 msgstr "Akce"
+
 #: templates/modoboa_sievefilters/guieditor.html:7
 msgid "Active"
 msgstr "Aktivní"
+
 #: templates/modoboa_sievefilters/guieditor.html:24
 msgid "No filter defined yet"
 msgstr "Dosud nebyl vytvořen žádný filtr"
+
 #: templates/modoboa_sievefilters/index.html:82
 msgid "Filter sets"
 msgstr "Sady filtrů"
+
 #: templates/modoboa_sievefilters/index.html:86
 msgid "active"
 msgstr "aktivní"
+
 #: templates/modoboa_sievefilters/index.html:101
 msgid ""
 "No filters set defined yet. You must create one in order to define filters."
 msgstr ""
 "Dosud nebyla vytvořena žádná sada filtrů. Aby bylo možné vytvořit filtry, je "
 "nejprve potřeba vytvořit sadu filtrů."
-#: templatetags/sfilters_tags.py:17
+
+#: templatetags/sfilters_tags.py:19
 msgid "New filters set"
 msgstr "Nová sada filtrů"
-#: templatetags/sfilters_tags.py:35 views.py:149
+
+#: templatetags/sfilters_tags.py:37 views.py:152
 msgid "New filter"
 msgstr "Nový filtr"
-#: templatetags/sfilters_tags.py:46
+
+#: templatetags/sfilters_tags.py:48
 msgid "Save filters set"
 msgstr "Uložit sadu filtrů"
-#: templatetags/sfilters_tags.py:54
+
+#: templatetags/sfilters_tags.py:56
 msgid "Activate filters set"
 msgstr "Aktitovat sadu filtrů"
-#: templatetags/sfilters_tags.py:59
+
+#: templatetags/sfilters_tags.py:61
 msgid "Remove filters set"
 msgstr "Odstranit sadu filtrů"
-#: templatetags/sfilters_tags.py:63
+
+#: templatetags/sfilters_tags.py:65
 msgid "Download"
 msgstr "Stáhnout"
-#: templatetags/sfilters_tags.py:78 views.py:171
+
+#: templatetags/sfilters_tags.py:80 views.py:174
 msgid "Edit filter"
 msgstr "Upravit filtr"
-#: templatetags/sfilters_tags.py:86
+
+#: templatetags/sfilters_tags.py:88
 msgid "Remove this filter"
 msgstr "Odstranit tento filtr"
-#: templatetags/sfilters_tags.py:95
+
+#: templatetags/sfilters_tags.py:97
 msgid "Move this filter up"
 msgstr "Posunout tento filtr nahoru"
-#: templatetags/sfilters_tags.py:104
+
+#: templatetags/sfilters_tags.py:106
 msgid "Move this filter down"
 msgstr "Posunout tento filtr dolů"
-#: views.py:87
+
+#: views.py:86
 msgid "Failed to retrieve filters set"
 msgstr "Nebylo možné získat sadu filtrů"
-#: views.py:152 views.py:243
+
+#: views.py:155 views.py:246
 msgid "Create"
 msgstr "Vytvořit"
-#: views.py:157
+
+#: views.py:160
 msgid "Filter created"
 msgstr "Filtr vytvořen"
-#: views.py:174
+
+#: views.py:177
 msgid "Update"
 msgstr "Aktualizovat"
-#: views.py:181
+
+#: views.py:184
 msgid "Filter modified"
 msgstr "Filtr upraven"
-#: views.py:205
+
+#: views.py:208
 msgid "Filter removed"
 msgstr "Filtr odstraněn"
-#: views.py:206
+
+#: views.py:209
 msgid "Failed to remove filter"
 msgstr "Nezdařilo se odstranit filtr"
-#: views.py:221
+
+#: views.py:224
 msgid "Filters set saved"
 msgstr "Sada filtrů uložena"
-#: views.py:237
+
+#: views.py:240
 msgid "Filters set created"
 msgstr "Sada filtrů vytvořena"
-#: views.py:241
+
+#: views.py:244
 msgid "Create a new filters set"
 msgstr "Vytvořit novou sadu filtrů"
-#: views.py:260
+
+#: views.py:263
 msgid "Filters set deleted"
 msgstr "Sada filtrů vymazána"
-#: views.py:273
+
+#: views.py:276
 msgid "Filters set activated"
 msgstr "Sada filtrů povolena"
-#: views.py:303
+
+#: views.py:306
 msgid "yes"
 msgstr "ano"
-#: views.py:307
+
+#: views.py:310
 msgid "no"
 msgstr "ne"

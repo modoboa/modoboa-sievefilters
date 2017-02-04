@@ -115,6 +115,8 @@ class FilterForm(forms.Form):
              "args": [{"type": "list", "vloader": "userfolders"}]},
             {"name": "redirect", "label": _("Redirect message to"),
              "args": [{"type": "string"}]},
+            {"name": "reject", "label": _("Reject message"),
+             "args": [{"type": "string"}]},
         ]
 
         self.conds_cnt = 0
@@ -193,6 +195,9 @@ class FilterForm(forms.Form):
 
     def _build_redirect_field(self, request, value):
         self._build_action_field(request, "redirect", value)
+
+    def _build_reject_field(self, request, value):
+        self._build_action_field(request, "reject", value)
 
     def _build_fileinto_field(self, request, value):
         self._build_action_field(request, "fileinto", value)
