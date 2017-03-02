@@ -1,6 +1,7 @@
 """Custom forms."""
 
 from sievelib.commands import SizeCommand, TrueCommand
+from sievelib.managesieve import SUPPORTED_AUTH_MECHS
 
 from django import forms
 from django.forms.widgets import (
@@ -12,6 +13,8 @@ from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext as _, ugettext_lazy
 
 from modoboa.admin.templatetags.admin_tags import gender
+from modoboa.lib import form_utils
+from modoboa.parameters import forms as param_forms
 
 from .imaputils import get_imapconnector
 
@@ -333,3 +336,102 @@ def build_filter_form_from_filter(request, name, fobj):
     form.fields["name"].initial = name
     form.fields["match_type"].initial = match_type
     return form
+
+
+def supported_auth_mechs():
+    values = [('AUTO', 'auto')]
+    for m in SUPPORTED_AUTH_MECHS:
+        values += [(m, m.lower())]
+    return values
+
+
+class ParametersForm(param_forms.AdminParametersForm):
+    app = "modoboa_sievefilters"
+
+    sep1 = form_utils.SeparatorField(label=_("ManageSieve settings"))
+
+    server = forms.CharField(
+        label=_("Server address"),
+        initial="127.0.0.1",
+        help_text=_("Address of your MANAGESIEVE server"),
+        widget=forms.TextInput(attrs={"class": "form-control"})
+    )
+
+    port = forms.IntegerField(
+        label=_("Server port"),
+        initial=4190,
+        help_text=_("Listening port of your MANAGESIEVE server"),
+        widget=forms.TextInput(attrs={"class": "form-control"})
+    )
+
+    starttls = form_utils.YesNoField(
+        label=_("Connect using STARTTLS"),
+        initial=False,
+        help_text=_("Use the STARTTLS extension")
+    )
+
+    authentication_mech = forms.ChoiceField(
+        label=_("Authentication mechanism"),
+        choices=supported_auth_mechs(),
+        initial="auto",
+        help_text=_("Prefered authentication mechanism"),
+        widget=forms.Select(attrs={"class": "form-control"})
+    )
+
+    sep2 = form_utils.SeparatorField(label=_("IMAP settings"))
+
+    imap_server = forms.CharField(
+        label=_("Server address"),
+        initial="127.0.0.1",
+        help_text=_("Address of your IMAP server")
+    )
+
+    imap_secured = form_utils.YesNoField(
+        label=_("Use a secured connection"),
+        initial=False,
+        help_text=_("Use a secured connection to access IMAP server")
+    )
+
+    imap_port = forms.IntegerField(
+        label=_("Server port"),
+        initial=143,
+        help_text=_("Listening port of your IMAP server")
+    )
+
+
+class UserSettings(param_forms.UserParametersForm):
+    app = "modoboa_sievefilters"
+
+    sep1 = form_utils.SeparatorField(label=_("General"))
+
+    editor_mode = forms.ChoiceField(
+        initial="gui",
+        label=_("Editor mode"),
+        choices=[("raw", "raw"), ("gui", "simplified")],
+        help_text=_("Select the mode you want the editor to work in"),
+        widget=form_utils.InlineRadioSelect(attrs={"type": "checkbox"})
+    )
+
+    sep2 = form_utils.SeparatorField(label=_("Mailboxes"))
+
+    trash_folder = forms.CharField(
+        initial="Trash",
+        label=_("Trash folder"),
+        help_text=_("Folder where deleted messages go")
+    )
+
+    sent_folder = forms.CharField(
+        initial="Sent",
+        label=_("Sent folder"),
+        help_text=_("Folder where copies of sent messages go")
+    )
+
+    drafts_folder = forms.CharField(
+        initial="Drafts",
+        label=_("Drafts folder"),
+        help_text=_("Folder where drafts go")
+    )
+
+    @staticmethod
+    def has_access(**kwargs):
+        return hasattr(kwargs.get("user"), "mailbox")

@@ -8,9 +8,9 @@ from sievelib.parser import Parser
 
 from django.utils.translation import ugettext as _
 
-from modoboa.lib import parameters
 from modoboa.lib.connections import ConnectionsManager, ConnectionError
 from modoboa.lib.exceptions import ModoboaException
+from modoboa.parameters import tools as param_tools
 
 
 class SieveClientError(ModoboaException):
@@ -29,17 +29,14 @@ class SieveClient(object):
             raise ConnectionError(msg)
 
     def login(self, user, password):
-        self.msc = Client(parameters.get_admin("SERVER"),
-                          int(parameters.get_admin("PORT")),
-                          debug=False)
-        use_starttls = True if parameters.get_admin("STARTTLS") == "yes" \
-            else False
-        authmech = parameters.get_admin("AUTHENTICATION_MECH")
+        conf = dict(param_tools.get_global_parameters("modoboa_sievefilters"))
+        self.msc = Client(conf["server"], conf["port"], debug=False)
+        authmech = conf["authentication_mech"]
         if authmech == "AUTO":
             authmech = None
         try:
             ret = self.msc.connect(
-                user, password, starttls=use_starttls, authmech=authmech)
+                user, password, starttls=conf["starttls"], authmech=authmech)
         except Error:
             ret = False
         if not ret:
