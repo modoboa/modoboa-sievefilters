@@ -1,6 +1,7 @@
 # coding: utf-8
 """Declare and register the sievefilters extension."""
 
+from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy
 
 from modoboa.core.extensions import ModoExtension, exts_pool
@@ -16,7 +17,7 @@ class SieveFilters(ModoExtension):
     version = __version__
     description = ugettext_lazy("Plugin to easily create server-side filters")
     url = "sfilters"
-    available_for_topredirection = True
+    topredirection_url = reverse_lazy("modoboa_sievefilters:index")
 
     def load(self):
         param_tools.registry.add(
