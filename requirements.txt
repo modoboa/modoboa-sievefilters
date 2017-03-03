@@ -1,2 +1,2 @@
+modoboa>=1.7.0
 sievelib
-rfc6266
