@@ -2,6 +2,8 @@
 
 """Custom views."""
 
+from __future__ import unicode_literals
+
 from rfc6266 import build_header
 from sievelib.commands import BadArgument, BadValue
 from sievelib.managesieve import Error
@@ -204,7 +206,7 @@ def removefilter(request, setname, fname):
                      password=request.session["password"])
     fset = sc.getscript(setname, format="fset")
     if fset.removefilter(fname.encode("utf-8")):
-        sc.pushscript(fset.name, str(fset))
+        sc.pushscript(fset.name, "{}".format(fset))
         return render_to_json_response(_("Filter removed"))
     return render_to_json_response(_("Failed to remove filter"), status=500)
 
@@ -312,7 +314,7 @@ def toggle_filter_state(request, setname, fname):
         color = "red"
     if not ret:
         pass
-    sc.pushscript(setname, str(fset))
+    sc.pushscript(setname, "{}".format(fset))
     return render_to_json_response({
         "label": newstate,
         "color": color

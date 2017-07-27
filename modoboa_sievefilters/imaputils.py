@@ -3,10 +3,13 @@
 :mod:`imaputils` --- Extra IMAPv4 utilities
 -------------------------------------------
 """
+
+from __future__ import unicode_literals
+
+from functools import wraps
 import imaplib
 import re
 import ssl
-from functools import wraps
 
 from django.utils.translation import ugettext as _
 
@@ -124,7 +127,7 @@ class IMAPconnector(object):
         :return: a string
         """
         if self.__hdelimiter is None:
-            data = self._cmd("LIST", "", "")
+            data = self._cmd("LIST", '""', '""')
             m = self.list_response_pattern.match(data[0])
             if m is None:
                 raise InternalError(
@@ -230,23 +233,27 @@ class IMAPconnector(object):
     def _listmboxes(self, topmailbox, mailboxes):
         """Retrieve mailboxes list."""
         pattern = (
-            "{0}{1}%".format(topmailbox.encode("imap4-utf-7"), self.hdelimiter)
+            '"{0}{1}%"'.format(
+                topmailbox.encode("imap4-utf-7").decode(), self.hdelimiter)
             if topmailbox else "%"
         )
-        resp = self._cmd("LIST", "", pattern, "RETURN", "(CHILDREN)")
+        resp = self._cmd("LIST", '""', pattern, "RETURN", "(CHILDREN)")
         newmboxes = []
         for mb in resp:
             if not mb:
                 continue
-            if type(mb) in [str, unicode]:
-                flags, delimiter, name, childinfo = \
-                    self.listextended_response_pattern.match(mb).groups()
-            else:
+            if type(mb) in [list, tuple]:
                 flags, delimiter, namelen = (
-                    self.list_response_pattern_literal.match(mb[0]).groups()
+                    self.list_response_pattern_literal.match(
+                        mb[0].decode()).groups()
                 )
                 name = mb[1][0:int(namelen)]
-            flags = flags.split(' ')
+            else:
+                flags, delimiter, name, childinfo = (
+                    self.listextended_response_pattern.match(
+                        mb.decode()).groups())
+            flags = flags.split(" ")
+            name = bytearray(name, "utf-8")
             name = name.decode("imap4-utf-7")
             mdm_found = False
             for idx, mdm in enumerate(mailboxes):
@@ -258,10 +265,10 @@ class IMAPconnector(object):
                 descr = dict(name=name)
                 newmboxes += [descr]
 
-            if r'\Marked' in flags or r'\UnMarked' not in flags:
+            if '\\Marked' in flags or '\\UnMarked' not in flags:
                 descr["send_status"] = True
-            if r'\HasChildren' in flags:
-                if r'\NonExistent' in flags:
+            if '\\HasChildren' in flags:
+                if '\\NonExistent' in flags:
                     descr["removed"] = True
                 descr["path"] = name
                 descr["sub"] = []
