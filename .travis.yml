@@ -1,0 +1,29 @@
+language: python
+cache: pip
+python:
+  - "2.7"
+  - "3.4"
+  - "3.6"
+
+services:
+  - postgres
+
+before_install:
+  - pip install codecov
+  - pip install -q psycopg2
+
+install:
+  - pip install -e git+https://github.com/modoboa/modoboa#egg=modoboa
+  - pip install -q factory-boy testfixtures
+  - python setup.py -q develop
+
+before_script:
+  - psql -c 'create database modoboa_test;' -U postgres
+
+script:
+  - cd test_project
+  - coverage run --source ../modoboa_sievefilters manage.py test modoboa_sievefilters
+
+after_success:
+  - codecov
+

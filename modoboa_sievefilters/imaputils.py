@@ -9,8 +9,12 @@ from __future__ import unicode_literals
 from functools import wraps
 import imaplib
 import re
+import socket
 import ssl
 
+import six
+
+from django.utils.encoding import smart_text
 from django.utils.translation import ugettext as _
 
 from modoboa.lib import imap_utf7  # NOQA
@@ -54,11 +58,9 @@ class capability(object):
         return wrapped_func
 
 
+@six.add_metaclass(ConnectionsManager)
 class IMAPconnector(object):
-
     """The IMAPv4 connector."""
-
-    __metaclass__ = ConnectionsManager
 
     list_base_pattern = (
         r'\((?P<flags>.*?)\) "(?P<delimiter>.*)" "?(?P<name>[^"]*)"?'
@@ -128,7 +130,7 @@ class IMAPconnector(object):
         """
         if self.__hdelimiter is None:
             data = self._cmd("LIST", '""', '""')
-            m = self.list_response_pattern.match(data[0])
+            m = self.list_response_pattern.match(data[0].decode())
             if m is None:
                 raise InternalError(
                     _("Failed to retrieve hierarchy delimiter"))
@@ -161,12 +163,8 @@ class IMAPconnector(object):
         :param user: username
         :param passwd: password
         """
-        import socket
-
-        if isinstance(user, unicode):
-            user = user.encode("utf-8")
-        if isinstance(passwd, unicode):
-            passwd = passwd.encode("utf-8")
+        user = smart_text(user)
+        passwd = smart_text(passwd)
         try:
             if self.conf["imap_secured"]:
                 self.m = imaplib.IMAP4_SSL(self.address, self.port)
@@ -175,14 +173,16 @@ class IMAPconnector(object):
         except (socket.error, imaplib.IMAP4.error, ssl.SSLError) as error:
             raise ImapError(_("Connection to IMAP server failed: %s" % error))
 
+        passwd = self.m._quote(passwd)
         data = self._cmd("LOGIN", user, passwd)
         self.m.state = "AUTH"
         if "CAPABILITY" in self.m.untagged_responses:
-            self.capabilities = \
-                self.m.untagged_responses.pop('CAPABILITY')[0].split()
+            self.capabilities = (
+                self.m.untagged_responses.pop('CAPABILITY')[0]
+                .decode().split())
         else:
             data = self._cmd("CAPABILITY")
-            self.capabilities = data[0].split()
+            self.capabilities = data[0].decode().split()
 
     def logout(self):
         """Logout from server."""
@@ -204,8 +204,8 @@ class IMAPconnector(object):
         newmboxes = []
         for mb in data:
             flags, delimiter, name = self.list_response_pattern.match(
-                mb).groups()
-            name = name.strip('"').decode("imap4-utf-7")
+                mb.decode()).groups()
+            name = bytearray(name.strip('"'), "utf-8").decode("imap4-utf-7")
             mdm_found = False
             for idx, mdm in enumerate(mailboxes):
                 if mdm["name"] == name:
