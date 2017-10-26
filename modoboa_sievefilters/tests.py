@@ -102,7 +102,7 @@ class SieveFiltersTestCase(ModoTestCase):
         """Test download_filters_set view."""
         url = reverse("modoboa_sievefilters:fs_download", args=["main_script"])
         response = self.client.get(url)
-        self.assertEqual(response.content, mocks.SAMPLE_SIEVE_SCRIPT)
+        self.assertEqual(response.content.decode(), mocks.SAMPLE_SIEVE_SCRIPT)
 
     def test_activate_filters_set(self):
         """Test activate_filters_set view."""
