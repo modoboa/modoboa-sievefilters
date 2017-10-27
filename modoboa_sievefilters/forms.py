@@ -329,9 +329,10 @@ def build_filter_form_from_filter(request, name, fobj):
                 t = t["test"]
                 operator_prefix = "not"
             conditions += [(
-                t["header-names"].strip('"'),
-                "{}{}".format(operator_prefix, t["match-type"][1:]),
-                t["key-list"].strip('"'))
+                smart_text(t["header-names"]).strip('"'),
+                "{}{}".format(
+                    operator_prefix, smart_text(t["match-type"])[1:]),
+                smart_text(t["key-list"]).strip('"'))
             ]
     actions = []
     for c in fobj.children:
