@@ -6,9 +6,9 @@
 
 from __future__ import unicode_literals
 
-from functools import wraps
 import imaplib
 import re
+from operator import itemgetter
 import socket
 import ssl
 
@@ -22,8 +22,6 @@ from modoboa.lib.connections import ConnectionsManager
 from modoboa.lib.exceptions import ModoboaException, InternalError
 from modoboa.parameters import tools as param_tools
 
-# imaplib.Debug = 4
-
 
 class ImapError(ModoboaException):
 
@@ -32,30 +30,6 @@ class ImapError(ModoboaException):
 
     def __str__(self):
         return str(self.reason)
-
-
-class capability(object):
-
-    """
-    Simple decorator to check if the server presents the required
-    capability. If not, a fallback method is called instead.
-
-    :param name: the capability name (upper case)
-    :param fallback_method: a method's name
-    """
-
-    def __init__(self, name, fallback_method):
-        self.name = name
-        self.fallback_method = fallback_method
-
-    def __call__(self, method):
-        @wraps(method)
-        def wrapped_func(cls, *args, **kwargs):
-            if self.name in cls.capabilities:
-                return method(cls, *args, **kwargs)
-            return getattr(cls, self.fallback_method)(cls, **kwargs)
-
-        return wrapped_func
 
 
 @six.add_metaclass(ConnectionsManager)
@@ -93,15 +67,6 @@ class IMAPconnector(object):
         :param name: the command's name
         :return: the command's result
         """
-        if name in ['FETCH', 'SORT', 'STORE', 'COPY', 'SEARCH']:
-            try:
-                typ, data = self.m.uid(name, *args)
-            except imaplib.IMAP4.error as e:
-                raise ImapError(e)
-            if typ == "NO":
-                raise ImapError(data)
-            return data
-
         try:
             typ, data = self.m._simple_command(name, *args)
         except imaplib.IMAP4.error as e:
@@ -196,40 +161,6 @@ class IMAPconnector(object):
         if hasattr(self, "current_mailbox"):
             del self.current_mailbox
 
-    def _listmboxes_simple(self, topmailbox='INBOX', mailboxes=None, **kwargs):
-        # data = self._cmd("LIST", "", "*")
-        if not mailboxes:
-            mailboxes = []
-        (status, data) = self.m.list()
-        newmboxes = []
-        for mb in data:
-            flags, delimiter, name = self.list_response_pattern.match(
-                mb.decode()).groups()
-            name = bytearray(name.strip('"'), "utf-8").decode("imap4-utf-7")
-            mdm_found = False
-            for idx, mdm in enumerate(mailboxes):
-                if mdm["name"] == name:
-                    mdm_found = True
-                    descr = mailboxes[idx]
-                    break
-            if not mdm_found:
-                descr = dict(name=name)
-                newmboxes += [descr]
-
-            if re.search("\%s" % delimiter, name):
-                parts = name.split(delimiter)
-                if "path" not in descr:
-                    descr["path"] = parts[0]
-                    descr["sub"] = []
-                if self._parse_mailbox_name(descr["sub"], parts[0], delimiter,
-                                            parts[1:]):
-                    descr["class"] = "subfolders"
-                continue
-
-        from operator import itemgetter
-        mailboxes += sorted(newmboxes, key=itemgetter("name"))
-
-    @capability('LIST-EXTENDED', '_listmboxes_simple')
     def _listmboxes(self, topmailbox, mailboxes):
         """Retrieve mailboxes list."""
         pattern = (
@@ -273,7 +204,6 @@ class IMAPconnector(object):
                 descr["path"] = name
                 descr["sub"] = []
 
-        from operator import itemgetter
         mailboxes += sorted(newmboxes, key=itemgetter("name"))
 
     def getmboxes(self, user, topmailbox=""):
