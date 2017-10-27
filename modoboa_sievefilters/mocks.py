@@ -1,3 +1,5 @@
+# coding: utf-8
+
 """Mock objects."""
 
 
@@ -14,6 +16,15 @@ if anyof (header :contains "To" "test2") {
 }
 """
 
+SAMPLE_SIEVE_SCRIPT2 = """require ["fileinto"];
+
+# Filter: Tést
+if anyof (header :contains "Subject" "toto", not header :contains "To" "peé") {
+    fileinto "Administratif.Contrats.CIC";
+    stop;
+}
+"""
+
 
 class ManagesieveClientMock(object):
     """Fake managesieve client."""
@@ -21,7 +32,8 @@ class ManagesieveClientMock(object):
     def __init__(self, *args, **kwargs):
         self.scripts = {
             "main_script": SAMPLE_SIEVE_SCRIPT,
-            "second_script": SAMPLE_SIEVE_SCRIPT
+            "second_script": SAMPLE_SIEVE_SCRIPT,
+            "third_script": SAMPLE_SIEVE_SCRIPT2,
         }
 
     def connect(self, *args, **kwargs):
