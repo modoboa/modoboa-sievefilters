@@ -7,12 +7,6 @@ server and your local delivery agent must understand the *Sieve*
 language. Don't panic, Dovecot supports both :-) (refer to
 :ref:`modoboa:dovecot` to know how to enable those features).
 
-.. note::
-        
-   The sieve filters extension requires the `Webmail
-   <http://modoboa-webmail.readthedocs.org/>`_ extension to be active
-   and configured.
-
 Go the online panel and modify the following parameters in order to
 communicate with the *ManageSieve* server:
 
@@ -32,4 +26,20 @@ communicate with the *ManageSieve* server:
 |Authentication      |Prefered            |auto                |
 |mechanism           |authentication      |                    |
 |                    |mechanism           |                    |
++--------------------+--------------------+--------------------+
+
+You also need to indicate where your *IMAP* server is:
+
++--------------------+--------------------+--------------------+
+|Name                |Description         |Default value       |
++====================+====================+====================+
+|Server address      |Address of your IMAP|127.0.0.1           |
+|                    |server              |                    |
++--------------------+--------------------+--------------------+
+|Use a secured       |Use a secured       |no                  |
+|connection          |connection to access|                    |
+|                    |IMAP server         |                    |
++--------------------+--------------------+--------------------+
+|Server port         |Listening port of   |143                 |
+|                    |your IMAP server    |                    |
 +--------------------+--------------------+--------------------+
