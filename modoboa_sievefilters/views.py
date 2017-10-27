@@ -13,6 +13,7 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.template.loader import render_to_string
+from django.utils.encoding import smart_bytes, smart_text
 from django.utils.translation import ugettext as _
 
 from modoboa.admin.lib import needs_mailbox
@@ -188,8 +189,7 @@ def editfilter(request, setname, fname, tplname="modoboa_sievefilters/filter.htm
         )
 
     fset = sc.getscript(setname, format="fset")
-    if isinstance(fname, unicode):
-        fname = fname.encode("utf-8")
+    fname = smart_bytes(fname)
     f = fset.getfilter(fname)
     form = build_filter_form_from_filter(request, fname, f)
     ctx = build_filter_ctx(ctx, form)
@@ -301,8 +301,7 @@ def download_filters_set(request, name):
 def toggle_filter_state(request, setname, fname):
     sc = SieveClient(user=request.user.username,
                      password=request.session["password"])
-    if isinstance(fname, unicode):
-        fname = fname.encode("utf-8")
+    fname = smart_text(fname)
     fset = sc.getscript(setname, format="fset")
     if fset.is_filter_disabled(fname):
         ret = fset.enablefilter(fname)
