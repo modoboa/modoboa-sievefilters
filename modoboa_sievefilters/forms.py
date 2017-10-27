@@ -315,7 +315,6 @@ def build_filter_form_from_filter(request, name, fobj):
     match_type = fobj["test"].name
     conditions = []
     for t in fobj["test"]["tests"]:
-        print(t)
         if isinstance(t, TrueCommand):
             match_type = "all"
             conditions += [("Subject", "contains", "")]

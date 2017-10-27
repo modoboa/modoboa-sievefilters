@@ -1,3 +1,5 @@
+# coding: utf-8
+
 """Sievefilters tests."""
 
 from __future__ import unicode_literals
@@ -31,8 +33,8 @@ class SieveFiltersTestCase(ModoTestCase):
         self.addCleanup(patcher.stop)
 
         patcher = mock.patch("imaplib.IMAP4")
-        self.mock_client = patcher.start()
-        self.mock_client.return_value = mocks.IMAP4Mock()
+        self.mock_imap4 = patcher.start()
+        self.mock_imap4.return_value = mocks.IMAP4Mock()
         self.addCleanup(patcher.stop)
 
         url = reverse("core:login")
@@ -89,6 +91,43 @@ class SieveFiltersTestCase(ModoTestCase):
         url = reverse("modoboa_sievefilters:filter_add", args=["main_script"])
         response = self.client.get(url)
         self.assertContains(response, "New filter")
+
+        data = {
+            "name": "tést filter",
+            "match_type": "anyof",
+            "conds": 1,
+            "cond_target_0": "Subject",
+            "cond_operator_0": "contains",
+            "cond_value_0": "Test",
+            "actions": 1,
+            "action_name_0": "fileinto",
+            "action_arg_0_0": "Trash",
+        }
+        response = self.ajax_post(url, data)
+        self.assertEqual(response, "Filter created")
+
+    def test_edit_filter(self):
+        """Test edit_filter view."""
+        url = reverse(
+            "modoboa_sievefilters:filter_change",
+            args=["main_script", "test1"])
+        response = self.client.get(url)
+        self.assertContains(response, "Edit filter")
+
+        data = {
+            "oldname": "test1",
+            "name": "test1",
+            "match_type": "all",
+            "conds": 1,
+            "cond_target_0": "To",
+            "cond_operator_0": "contains",
+            "cond_value_0": "test1",
+            "actions": 1,
+            "action_name_0": "fileinto",
+            "action_arg_0_0": "Trash",
+        }
+        response = self.ajax_post(url, data)
+        self.assertEqual(response, "Filter modified")
 
     def test_remove_filter(self):
         """Test removefilter view."""
