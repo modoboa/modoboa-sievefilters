@@ -47,6 +47,8 @@ class SieveFiltersTestCase(ModoTestCase):
         """Test index view."""
         response = self.client.get(reverse("modoboa_sievefilters:index"))
         self.assertContains(response, "main_script (active)")
+        response = self.client.get(reverse("core:logout"))
+        self.assertEqual(response.status_code, 302)
 
     def test_getfs(self):
         """Test getfs view."""

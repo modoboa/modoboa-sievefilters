@@ -39,6 +39,9 @@ class ManagesieveClientMock(object):
     def connect(self, *args, **kwargs):
         return True
 
+    def logout(self):
+        return True
+
     def capability(self):
         return """
 "IMPLEMENTATION" "Example1 ManageSieved v001"
