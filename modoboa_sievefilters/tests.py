@@ -129,6 +129,14 @@ class SieveFiltersTestCase(ModoTestCase):
         response = self.ajax_post(url, data)
         self.assertEqual(response, "Filter modified")
 
+    def test_edit_filter_with_not(self):
+        """Try to edit a filter containing a not operator."""
+        url = reverse(
+            "modoboa_sievefilters:filter_change",
+            args=["third_script", "Tést"])
+        response = self.client.get(url)
+        self.assertContains(response, "Edit filter")
+
     def test_remove_filter(self):
         """Test removefilter view."""
         url = reverse(

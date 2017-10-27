@@ -1,6 +1,8 @@
 """Custom forms."""
 
-from sievelib.commands import SizeCommand, TrueCommand
+from __future__ import unicode_literals
+
+from sievelib import commands
 from sievelib.managesieve import SUPPORTED_AUTH_MECHS
 
 from django import forms
@@ -315,16 +317,22 @@ def build_filter_form_from_filter(request, name, fobj):
     match_type = fobj["test"].name
     conditions = []
     for t in fobj["test"]["tests"]:
-        if isinstance(t, TrueCommand):
+        if isinstance(t, commands.TrueCommand):
             match_type = "all"
             conditions += [("Subject", "contains", "")]
             break
-        elif isinstance(t, SizeCommand):
+        elif isinstance(t, commands.SizeCommand):
             conditions += [("size", t["comparator"][1:], t["limit"])]
         else:
-            conditions += [(t["header-names"].strip('"'),
-                            t["match-type"][1:],
-                            t["key-list"].strip('"'))]
+            operator_prefix = ""
+            if isinstance(t, commands.NotCommand):
+                t = t["test"]
+                operator_prefix = "not"
+            conditions += [(
+                t["header-names"].strip('"'),
+                "{}{}".format(operator_prefix, t["match-type"][1:]),
+                t["key-list"].strip('"'))
+            ]
     actions = []
     for c in fobj.children:
         action = (c.name,)
