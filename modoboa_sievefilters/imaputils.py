@@ -4,8 +4,6 @@
 -------------------------------------------
 """
 
-from __future__ import unicode_literals
-
 import imaplib
 import re
 from operator import itemgetter
@@ -14,7 +12,7 @@ import ssl
 
 import six
 
-from django.utils.encoding import smart_text
+from django.utils.encoding import smart_bytes
 from django.utils.translation import ugettext as _
 
 from modoboa.lib import imap_utf7  # NOQA
@@ -128,8 +126,6 @@ class IMAPconnector(object):
         :param user: username
         :param passwd: password
         """
-        user = smart_text(user)
-        passwd = smart_text(passwd)
         try:
             if self.conf["imap_secured"]:
                 self.m = imaplib.IMAP4_SSL(self.address, self.port)
@@ -139,7 +135,7 @@ class IMAPconnector(object):
             raise ImapError(_("Connection to IMAP server failed: %s" % error))
 
         passwd = self.m._quote(passwd)
-        data = self._cmd("LOGIN", user, passwd)
+        data = self._cmd("LOGIN", smart_bytes(user), smart_bytes(passwd))
         self.m.state = "AUTH"
         if "CAPABILITY" in self.m.untagged_responses:
             self.capabilities = (
