@@ -36,8 +36,8 @@ class ManagesieveClientMock(object):
             "third_script": SAMPLE_SIEVE_SCRIPT2,
         }
 
-    def connect(self, *args, **kwargs):
-        return True
+    def connect(self, username, password, **kwargs):
+        return (username == "user@test.com" and password == "toto")
 
     def logout(self):
         return True

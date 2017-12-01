@@ -43,8 +43,7 @@ class SieveClient(object):
         if authmech == "AUTO":
             authmech = None
         try:
-            ret = self.msc.connect(
-                smart_bytes(user), smart_bytes(password),
+            ret = self.msc.connect(user, password,
                 starttls=conf["starttls"], authmech=authmech)
         except managesieve.Error:
             ret = False
