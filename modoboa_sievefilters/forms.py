@@ -18,7 +18,9 @@ from modoboa.admin.templatetags.admin_tags import gender
 from modoboa.lib import form_utils
 from modoboa.parameters import forms as param_forms
 
-from .imaputils import get_imapconnector
+from . import constants
+from . import imaputils
+from . import lib
 
 
 class FiltersSetForm(forms.Form):
@@ -84,47 +86,13 @@ class FilterForm(forms.Form):
 
         self.fields["name"] = forms.CharField(label=_("Name"))
         self.fields["match_type"] = forms.ChoiceField(
+            label=_("Match type"),
             choices=[("allof", _("All of the following")),
                      ("anyof", _("Any of the following")),
                      ("all", _("All messages"))],
             initial="anyof",
             widget=CustomRadioSelect()
         )
-
-        self.header_operators = [
-            ("contains", _("contains"), "string"),
-            ("notcontains", _("does not contain"), "string"),
-            ("is", _("is"), "string"),
-            ("isnot", _("is not"), "string")
-        ]
-
-        self.cond_templates = [
-            {"name": "Subject",
-             "label": _("Subject"),
-             "operators": self.header_operators},
-            {"name": "From",
-             "label": _("Sender"),
-             "operators": self.header_operators},
-            {"name": "To",
-             "label": _("Recipient"),
-             "operators": self.header_operators},
-            {"name": "Cc",
-             "label": _("Cc"),
-             "operators": self.header_operators},
-            {"name": "size", "label": _("Size"),
-             "operators": [("over", _("is greater than"), "number"),
-                           ("under", _("is less than"), "number")]},
-        ]
-
-        self.action_templates = [
-            {"name": "fileinto", "label": _("Move message to"),
-             "args": [{"type": "list", "vloader": "userfolders"}]},
-            {"name": "redirect", "label": _("Redirect message to"),
-             "args": [{"type": "string"}]},
-            {"name": "reject", "label": _("Reject message"),
-             "args": [{"type": "string"}]},
-            {"name": "stop", "label": _("Stop processing")},
-        ]
 
         self.conds_cnt = 0
         for c in conditions:
@@ -144,7 +112,7 @@ class FilterForm(forms.Form):
         targets = []
         ops = []
         vfield = None
-        for tpl in self.cond_templates:
+        for tpl in constants.CONDITION_TEMPLATES:
             targets += [(tpl["name"], tpl["label"]), ]
             if tpl["name"] != name:
                 continue
@@ -177,23 +145,27 @@ class FilterForm(forms.Form):
     def _build_size_field(self, op, value):
         self._build_header_field("size", op, value)
 
-    def _build_action_field(self, request, name, value=None):
+    def _build_action_field(self, request, name, *values):
         """Add a new action field to form."""
         actions = []
         args = None
-        for tpl in self.action_templates:
+        for tpl in constants.ACTION_TEMPLATES:
             actions += [(tpl["name"], tpl["label"]), ]
             if name == tpl["name"]:
                 args = tpl.get("args", [])
         self.fields["action_name_%d" % self.actions_cnt] = (
             forms.ChoiceField(initial=name, choices=actions))
-        for cnt in range(0, len(args)):
+        for cnt in range(len(args)):
             arg = args[cnt]
+            value = values[cnt] if len(values) > cnt else None
             aname = "action_arg_%d_%d" % (self.actions_cnt, cnt)
             if arg["type"] == "string":
                 self.fields[aname] = forms.CharField(
                     max_length=255,
                     initial=value)
+            elif arg["type"] == "boolean":
+                self.fields[aname] = forms.BooleanField(
+                    label=arg["label"], initial=value, required=False)
             elif arg["type"] == "list":
                 choices = getattr(self, arg["vloader"])(request)
                 self.fields[aname] = forms.ChoiceField(
@@ -201,14 +173,14 @@ class FilterForm(forms.Form):
                     choices=choices)
         self.actions_cnt += 1
 
-    def _build_redirect_field(self, request, value):
-        self._build_action_field(request, "redirect", value)
+    def _build_redirect_field(self, request, *values):
+        self._build_action_field(request, "redirect", *values)
 
-    def _build_reject_field(self, request, value):
-        self._build_action_field(request, "reject", value)
+    def _build_reject_field(self, request, *values):
+        self._build_action_field(request, "reject", *values)
 
-    def _build_fileinto_field(self, request, value):
-        self._build_action_field(request, "fileinto", value)
+    def _build_fileinto_field(self, request, *values):
+        self._build_action_field(request, "fileinto", *values)
 
     def _build_stop_field(self, request):
         self._build_action_field(request, "stop")
@@ -230,33 +202,45 @@ class FilterForm(forms.Form):
         return ret
 
     def userfolders(self, request):
-        mbc = get_imapconnector(request)
+        mbc = imaputils.get_imapconnector(request)
         ret = mbc.getmboxes(request.user)
 
         folders = self.__build_folders_list(ret, request.user, mbc)
         return folders
 
     def tofilter(self):
+        """Convert form values to filter values."""
         conditions = []
         actions = []
-        for cpt in range(0, self.conds_cnt):
-            conditions += [(self.cleaned_data["cond_target_%d" % cpt],
-                            ":" + self.cleaned_data["cond_operator_%d" % cpt],
-                            self.cleaned_data["cond_value_%d" % cpt])]
-        for cpt in range(0, self.actions_cnt):
-            naction = (self.cleaned_data["action_name_%d" % cpt],)
-            argcpt = 0
-            while True:
-                try:
-                    naction += (
-                        self.cleaned_data[
-                            "action_arg_%d_%d" %
-                            (cpt, argcpt)],)
-                except KeyError:
-                    break
-                argcpt += 1
+        for cpt in range(self.conds_cnt):
+            conditions += [(
+                self.cleaned_data["cond_target_%d" % cpt],
+                ":" + self.cleaned_data["cond_operator_%d" % cpt],
+                self.cleaned_data["cond_value_%d" % cpt])
+            ]
+        for cpt in range(self.actions_cnt):
+            action = self.cleaned_data["action_name_%d" % cpt]
+            tpl = lib.find_action_template(action)
+            naction = [action]
+            args = {}
+            for pos, argtpl in enumerate(tpl["args"]):
+                fieldname = "action_arg_{}_{}".format(cpt, pos)
+                if fieldname not in self.cleaned_data:
+                    continue
+                value = self.cleaned_data[fieldname]
+                if argtpl["type"] == "boolean" and isinstance(value, bool):
+                    if not value:
+                        continue
+                    value = argtpl["value"]
+                args[argtpl["name"]] = value
+            if "args_order" in tpl:
+                # Corresponding command requires args to be in a special order
+                for name in tpl["args_order"]:
+                    if name in args:
+                        naction.append(args[name])
+            else:
+                naction += [arg for arg in args.values()]
             actions += [naction]
-
         return (conditions, actions)
 
 
@@ -337,10 +321,17 @@ def build_filter_form_from_filter(request, name, fobj):
     actions = []
     for c in fobj.children:
         action = (c.name,)
-        for arg in c.args_definition:
-            action += (c[arg["name"]].strip('"'),)
+        tpl = lib.find_action_template(c.name)
+        for argtpl in tpl["args"]:
+            if argtpl["name"] not in c:
+                continue
+            value = c[argtpl["name"]]
+            if argtpl["type"] == "boolean":
+                value = True if value else False
+            else:
+                value = value.strip('"')
+            action += (value, )
         actions += [action]
-
     form = FilterForm(conditions, actions, request)
     form.fields["name"].initial = name
     form.fields["match_type"].initial = match_type

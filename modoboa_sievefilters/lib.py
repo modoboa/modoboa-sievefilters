@@ -18,6 +18,8 @@ from modoboa.lib.connections import ConnectionsManager, ConnectionError
 from modoboa.lib.exceptions import ModoboaException
 from modoboa.parameters import tools as param_tools
 
+from . import constants
+
 
 class SieveClientError(ModoboaException):
     http_code = 424
@@ -107,3 +109,11 @@ class SieveClient(object):
     def activatescript(self, name):
         if not self.msc.setactive(name):
             raise SieveClientError(self.msc.errmsg.decode())
+
+
+def find_action_template(action):
+    """Find template corresponding to action."""
+    for tpl in constants.ACTION_TEMPLATES:
+        if tpl["name"] == action:
+            return tpl
+    raise RuntimeError("action {} not defined".format(action))

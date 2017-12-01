@@ -10,7 +10,7 @@ from sievelib.managesieve import Error
 
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from django.template.loader import render_to_string
 from django.utils.encoding import smart_bytes, smart_text
@@ -23,6 +23,7 @@ from modoboa.lib.web_utils import (
     _render_error, ajax_response, render_to_json_response
 )
 
+from . import constants
 from .forms import (
     FilterForm, build_filter_form_from_qdict, build_filter_form_from_filter,
     FiltersSetForm
@@ -64,12 +65,10 @@ def index(request, tplname="modoboa_sievefilters/index.html"):
 @needs_mailbox()
 def get_templates(request, ftype):
     if ftype == "condition":
-        return render_to_json_response(
-            FilterForm([], [], request).cond_templates
-        )
-    return render_to_json_response(
-        FilterForm([], [], request).action_templates
-    )
+        data = constants.CONDITION_TEMPLATES
+    else:
+        data = constants.ACTION_TEMPLATES
+    return JsonResponse(data, safe=False)
 
 
 @login_required

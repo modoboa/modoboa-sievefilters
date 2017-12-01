@@ -212,6 +212,15 @@
                     if (tpl.args[acpt].vloader != undefined) {
                         this[tpl.args[acpt].vloader]($child);
                     }
+                } else if (tpl.args[acpt].type === "boolean") {
+                    $child = $('<div />', {'class': 'checkbox'});
+                    var $label = $('<label />', {'html': tpl.args[acpt].label});
+                    $label.appendTo($child);
+                    $("<input />", {
+                        type: "checkbox",
+                        id: "id_" + argname,
+                        name: argname
+                    }).prependTo($label);
                 } else if (tpl.args[acpt].type == "string") {
                     $child = $("<input />", {
                         type: "text",
@@ -250,13 +259,14 @@
             this.deletePrevArgs(parts[2]);
             for (var cpt = 0; cpt < this.options.templates.length; cpt++) {
                 var tpl = this.options.templates[cpt];
+                var $div = $('<div class="col-sm-6" />');
                 if (tpl.name != $target.val()) {
                     continue;
                 }
                 $.each(this.loadargs(parts[2], tpl), function(idx, arg) {
-                    $pos.before(arg);
-                    arg.wrap('<div class="col-sm-5"/>');
+                    arg.appendTo($div);
                 });
+                $pos.before($div);
             }
         },
 
@@ -294,12 +304,13 @@
             }
             $div.append($actioname);
             $actioname.change($.proxy(this.name_change, this));
+            var $argsDiv = $('<div class="col-sm-6" />');
             $.each(args, function(idx, element) {
-                $div.append(element);
-                element.wrap('<div class="col-sm-5"/>');
+                $argsDiv.append(element);
             });
 
-            $actioname.wrap('<div class="col-sm-5"/>');
+            $actioname.wrap('<div class="col-sm-4"/>');
+            $div.append($argsDiv);
             $div.append($rmlink);
             this.$element.after($div);
             this.nextid++;
