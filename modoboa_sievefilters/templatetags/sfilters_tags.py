@@ -158,7 +158,7 @@ def display_action(form, cnt):
     configure_field_classes(action)
     values = []
     verrors = []
-    for pos, argtpl in enumerate(tpl["args"]):
+    for pos, argtpl in enumerate(tpl.get("args", [])):
         fieldname = "action_arg_{}_{}".format(cnt, pos)
         if fieldname not in form.fields:
             continue

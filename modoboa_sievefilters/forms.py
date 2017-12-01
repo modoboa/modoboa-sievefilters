@@ -322,7 +322,7 @@ def build_filter_form_from_filter(request, name, fobj):
     for c in fobj.children:
         action = (c.name,)
         tpl = lib.find_action_template(c.name)
-        for argtpl in tpl["args"]:
+        for argtpl in tpl.get("args", []):
             if argtpl["name"] not in c:
                 continue
             value = c[argtpl["name"]]
