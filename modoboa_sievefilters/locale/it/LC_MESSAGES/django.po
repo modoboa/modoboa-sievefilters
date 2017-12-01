@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Modoboa\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-04 17:19+0100\n"
+"POT-Creation-Date: 2017-12-01 18:04+0100\n"
 "PO-Revision-Date: 2015-10-11 11:44+0000\n"
 "Last-Translator: Rocco <mors10@hotmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/tonio/modoboa/language/"
@@ -20,226 +20,234 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: app_settings.py:21
-msgid "ManageSieve settings"
-msgstr "Impostazioni ManageSieve"
-
-#: app_settings.py:24 app_settings.py:54
-msgid "Server address"
-msgstr "Indirizzo del server"
-
-#: app_settings.py:26
-msgid "Address of your MANAGESIEVE server"
-msgstr "Indirizzo del tuo server MANAGESIEVE"
-
-#: app_settings.py:31 app_settings.py:66
-msgid "Server port"
-msgstr "Porta del server"
-
-#: app_settings.py:33
-msgid "Listening port of your MANAGESIEVE server"
-msgstr "Porta di ascolto del tuo servere MANAGESIEVE"
-
-#: app_settings.py:38
-msgid "Connect using STARTTLS"
-msgstr "Connetti utilizzando STARTTLS"
-
-#: app_settings.py:40
-msgid "Use the STARTTLS extension"
-msgstr "Usa l'estensione STARTTLS"
-
-#: app_settings.py:44
-msgid "Authentication mechanism"
-msgstr "Meccanismo di autenticazione"
-
-#: app_settings.py:47
-msgid "Prefered authentication mechanism"
-msgstr "Meccanismo di autenticazione preferito"
-
-#: app_settings.py:51
-#, fuzzy
-#| msgid "ManageSieve settings"
-msgid "IMAP settings"
-msgstr "Impostazioni ManageSieve"
-
-#: app_settings.py:56
-#, fuzzy
-#| msgid "Address of your MANAGESIEVE server"
-msgid "Address of your IMAP server"
-msgstr "Indirizzo del tuo server MANAGESIEVE"
-
-#: app_settings.py:60
-msgid "Use a secured connection"
-msgstr ""
-
-#: app_settings.py:62
-msgid "Use a secured connection to access IMAP server"
-msgstr ""
-
-#: app_settings.py:68
-#, fuzzy
-#| msgid "Listening port of your MANAGESIEVE server"
-msgid "Listening port of your IMAP server"
-msgstr "Porta di ascolto del tuo servere MANAGESIEVE"
-
-#: app_settings.py:75
-msgid "General"
-msgstr "Generale"
-
-#: app_settings.py:79
-msgid "Editor mode"
-msgstr "Modo editor"
-
-#: app_settings.py:81
-msgid "Select the mode you want the editor to work in"
-msgstr "Seleziona la modalità di lavoro che desideri per l'editor"
-
-#: app_settings.py:85
-msgid "Mailboxes"
-msgstr ""
-
-#: app_settings.py:89
-msgid "Trash folder"
-msgstr ""
-
-#: app_settings.py:90
-msgid "Folder where deleted messages go"
-msgstr ""
-
-#: app_settings.py:95
-msgid "Sent folder"
-msgstr ""
-
-#: app_settings.py:96
-msgid "Folder where copies of sent messages go"
-msgstr ""
-
-#: app_settings.py:101
-msgid "Drafts folder"
-msgstr ""
-
-#: app_settings.py:102
-msgid "Folder where drafts go"
-msgstr ""
-
-#: forms.py:26
-msgid "Check to activate this filters set"
-msgstr "Seleziona per attivare questo insieme di filtri"
-
-#: forms.py:80 templates/modoboa_sievefilters/guieditor.html:6
-msgid "Name"
-msgstr "Nome"
-
-#: forms.py:82
-msgid "All of the following"
-msgstr "Tutti i seguenti"
-
-#: forms.py:83
-msgid "Any of the following"
-msgstr "Alcuni dei seguenti"
-
-#: forms.py:84
-msgid "All messages"
-msgstr "Tutti i messaggi"
-
-#: forms.py:90
+#: constants.py:6
 msgid "contains"
 msgstr "contiene"
 
-#: forms.py:91
+#: constants.py:7
 msgid "does not contain"
 msgstr "non contiene"
 
-#: forms.py:92
+#: constants.py:8
 msgid "is"
 msgstr "è"
 
-#: forms.py:93
+#: constants.py:9
 msgid "is not"
 msgstr "non è"
 
-#: forms.py:98
+#: constants.py:14
 msgid "Subject"
 msgstr "Oggetto"
 
-#: forms.py:101
+#: constants.py:17
 msgid "Sender"
 msgstr "Mittente"
 
-#: forms.py:104
+#: constants.py:20
 msgid "Recipient"
 msgstr "Destinatario"
 
-#: forms.py:107
+#: constants.py:23
 msgid "Cc"
 msgstr "Cc"
 
-#: forms.py:109
+#: constants.py:25
 msgid "Size"
 msgstr "Dimensione"
 
-#: forms.py:110
+#: constants.py:26
 msgid "is greater than"
 msgstr "è maggiore di"
 
-#: forms.py:111
+#: constants.py:27
 msgid "is less than"
 msgstr "è minore di"
 
-#: forms.py:115
+#: constants.py:31
 msgid "Move message to"
 msgstr "Sposta il messaggio in"
 
-#: forms.py:117
+#: constants.py:36 constants.py:44
+msgid "Keep local copy"
+msgstr ""
+
+#: constants.py:40
 msgid "Redirect message to"
 msgstr "Ridireziona il messaggio a"
 
-#: forms.py:119
+#: constants.py:48
 #, fuzzy
 #| msgid "Redirect message to"
 msgid "Reject message"
 msgstr "Ridireziona il messaggio a"
 
-#: forms.py:121
+#: constants.py:50
 msgid "Stop processing"
 msgstr ""
 
-#: forms.py:134
+#: forms.py:33
+msgid "Check to activate this filters set"
+msgstr "Seleziona per attivare questo insieme di filtri"
+
+#: forms.py:87 templates/modoboa_sievefilters/guieditor.html:6
+msgid "Name"
+msgstr "Nome"
+
+#: forms.py:89
+msgid "Match type"
+msgstr ""
+
+#: forms.py:90
+msgid "All of the following"
+msgstr "Tutti i seguenti"
+
+#: forms.py:91
+msgid "Any of the following"
+msgstr "Alcuni dei seguenti"
+
+#: forms.py:92
+msgid "All messages"
+msgstr "Tutti i messaggi"
+
+#: forms.py:107
 msgid "Wrong filter name"
 msgstr "Nome del filtro errato"
 
-#: general_callbacks.py:17 modo_extension.py:23
+#: forms.py:351
+msgid "ManageSieve settings"
+msgstr "Impostazioni ManageSieve"
+
+#: forms.py:354 forms.py:384
+msgid "Server address"
+msgstr "Indirizzo del server"
+
+#: forms.py:356
+msgid "Address of your MANAGESIEVE server"
+msgstr "Indirizzo del tuo server MANAGESIEVE"
+
+#: forms.py:361 forms.py:396
+msgid "Server port"
+msgstr "Porta del server"
+
+#: forms.py:363
+msgid "Listening port of your MANAGESIEVE server"
+msgstr "Porta di ascolto del tuo servere MANAGESIEVE"
+
+#: forms.py:368
+msgid "Connect using STARTTLS"
+msgstr "Connetti utilizzando STARTTLS"
+
+#: forms.py:370
+msgid "Use the STARTTLS extension"
+msgstr "Usa l'estensione STARTTLS"
+
+#: forms.py:374
+msgid "Authentication mechanism"
+msgstr "Meccanismo di autenticazione"
+
+#: forms.py:377
+msgid "Prefered authentication mechanism"
+msgstr "Meccanismo di autenticazione preferito"
+
+#: forms.py:381
+#, fuzzy
+#| msgid "ManageSieve settings"
+msgid "IMAP settings"
+msgstr "Impostazioni ManageSieve"
+
+#: forms.py:386
+#, fuzzy
+#| msgid "Address of your MANAGESIEVE server"
+msgid "Address of your IMAP server"
+msgstr "Indirizzo del tuo server MANAGESIEVE"
+
+#: forms.py:390
+msgid "Use a secured connection"
+msgstr ""
+
+#: forms.py:392
+msgid "Use a secured connection to access IMAP server"
+msgstr ""
+
+#: forms.py:398
+#, fuzzy
+#| msgid "Listening port of your MANAGESIEVE server"
+msgid "Listening port of your IMAP server"
+msgstr "Porta di ascolto del tuo servere MANAGESIEVE"
+
+#: forms.py:405
+msgid "General"
+msgstr "Generale"
+
+#: forms.py:409
+msgid "Editor mode"
+msgstr "Modo editor"
+
+#: forms.py:411
+msgid "Select the mode you want the editor to work in"
+msgstr "Seleziona la modalità di lavoro che desideri per l'editor"
+
+#: forms.py:415
+msgid "Mailboxes"
+msgstr ""
+
+#: forms.py:419
+msgid "Trash folder"
+msgstr ""
+
+#: forms.py:420
+msgid "Folder where deleted messages go"
+msgstr ""
+
+#: forms.py:425
+msgid "Sent folder"
+msgstr ""
+
+#: forms.py:426
+msgid "Folder where copies of sent messages go"
+msgstr ""
+
+#: forms.py:431
+msgid "Drafts folder"
+msgstr ""
+
+#: forms.py:432
+msgid "Folder where drafts go"
+msgstr ""
+
+#: handlers.py:19 modo_extension.py:26
 #: templates/modoboa_sievefilters/index.html:4
 msgid "Message filters"
 msgstr "Filtri messaggi"
 
-#: imaputils.py:127
+#: imaputils.py:99
 #, fuzzy
 #| msgid "Failed to retrieve filters set"
 msgid "Failed to retrieve hierarchy delimiter"
 msgstr "Recupero delle impostazioni di filtro fallito"
 
-#: imaputils.py:170
+#: imaputils.py:135
 #, fuzzy, python-format
 #| msgid "Connection to MANAGESIEVE server failed, check your configuration"
 msgid "Connection to IMAP server failed: %s"
 msgstr ""
 "Connessione al server MANAGESIEVE fallita, controlla la tua configurazione"
 
-#: lib.py:47
+#: lib.py:54
 msgid "Connection to MANAGESIEVE server failed, check your configuration"
 msgstr ""
 "Connessione al server MANAGESIEVE fallita, controlla la tua configurazione"
 
-#: lib.py:95
+#: lib.py:98
 msgid "Not enough space on server"
 msgstr "Non c'è spazio sufficiente nel server"
 
-#: modo_extension.py:16
+#: modo_extension.py:18
 msgid "Plugin to easily create server-side filters"
 msgstr "Plugin per creare facilmente filtri lato-server"
 
-#: modo_extension.py:22
+#: modo_extension.py:24
 msgid "Sieve filters"
 msgstr "Filtri Sieve"
 
@@ -248,7 +256,7 @@ msgid "Conditions"
 msgstr "Condizioni"
 
 #: templates/modoboa_sievefilters/filter.html:20
-#: templates/modoboa_sievefilters/guieditor.html:5 views.py:103
+#: templates/modoboa_sievefilters/guieditor.html:5 views.py:104
 msgid "Actions"
 msgstr "Azioni"
 
@@ -275,98 +283,98 @@ msgstr ""
 "Non è ancora stato definito alcun gruppo di filtri. Devi crearne uno per "
 "definire dei filtri"
 
-#: templatetags/sfilters_tags.py:19
+#: templatetags/sfilters_tags.py:21
 msgid "New filters set"
 msgstr "Nuovo gruppo di filtri"
 
-#: templatetags/sfilters_tags.py:37 views.py:152
+#: templatetags/sfilters_tags.py:39 views.py:153
 msgid "New filter"
 msgstr "Nuovo filtro"
 
-#: templatetags/sfilters_tags.py:48
+#: templatetags/sfilters_tags.py:50
 msgid "Save filters set"
 msgstr "Salva il gruppo di filtri"
 
-#: templatetags/sfilters_tags.py:56
+#: templatetags/sfilters_tags.py:58
 msgid "Activate filters set"
 msgstr "Attiva gruppo di filtri"
 
-#: templatetags/sfilters_tags.py:61
+#: templatetags/sfilters_tags.py:63
 msgid "Remove filters set"
 msgstr "Elimina gruppo di filtri"
 
-#: templatetags/sfilters_tags.py:65
+#: templatetags/sfilters_tags.py:67
 msgid "Download"
 msgstr "Download"
 
-#: templatetags/sfilters_tags.py:80 views.py:174
+#: templatetags/sfilters_tags.py:82 views.py:175
 msgid "Edit filter"
 msgstr "Modifica filtro"
 
-#: templatetags/sfilters_tags.py:88
+#: templatetags/sfilters_tags.py:90
 msgid "Remove this filter"
 msgstr "Elimina questo filtro"
 
-#: templatetags/sfilters_tags.py:97
+#: templatetags/sfilters_tags.py:99
 msgid "Move this filter up"
 msgstr "Sposta questo filtro in alto"
 
-#: templatetags/sfilters_tags.py:106
+#: templatetags/sfilters_tags.py:108
 msgid "Move this filter down"
 msgstr "Sposta questo filtro in basso "
 
-#: views.py:86
+#: views.py:87
 msgid "Failed to retrieve filters set"
 msgstr "Recupero delle impostazioni di filtro fallito"
 
-#: views.py:155 views.py:246
+#: views.py:156 views.py:248
 msgid "Create"
 msgstr "Crea"
 
-#: views.py:160
+#: views.py:161
 msgid "Filter created"
 msgstr "Filtro creato"
 
-#: views.py:177
+#: views.py:179
 msgid "Update"
 msgstr "Aggiorna"
 
-#: views.py:184
+#: views.py:186
 msgid "Filter modified"
 msgstr "Filtro modificato"
 
-#: views.py:208
+#: views.py:209
 msgid "Filter removed"
 msgstr "Filtro eliminato"
 
-#: views.py:209
+#: views.py:210
 msgid "Failed to remove filter"
 msgstr "Rimozione del filtro fallita"
 
-#: views.py:224
+#: views.py:225
 msgid "Filters set saved"
 msgstr "Gruppo filtri salvato"
 
-#: views.py:240
+#: views.py:241
 msgid "Filters set created"
 msgstr "Gruppo filtri creato"
 
-#: views.py:244
+#: views.py:246
 msgid "Create a new filters set"
 msgstr "Crea un nuovo gruppo di filtri"
 
-#: views.py:263
+#: views.py:265
 msgid "Filters set deleted"
 msgstr "Gruppo filtri eliminato"
 
-#: views.py:276
+#: views.py:278
 msgid "Filters set activated"
 msgstr "Gruppo filtri attivato"
 
-#: views.py:306
+#: views.py:307
 msgid "yes"
 msgstr "si"
 
-#: views.py:310
+#: views.py:311
 msgid "no"
 msgstr "no"

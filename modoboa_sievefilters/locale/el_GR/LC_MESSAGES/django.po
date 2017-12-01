@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Giannis Kapetanakis <bilias@edu.physics.uoc.gr>, 2016
 # Kostas Moumouris <moumouriskostas@gmail.com>, 2017
@@ -9,97 +9,106 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Modoboa\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-03 09:34+0100\n"
+"POT-Creation-Date: 2017-12-01 18:04+0100\n"
 "PO-Revision-Date: 2017-10-12 13:12+0000\n"
 "Last-Translator: Kostas Moumouris <moumouriskostas@gmail.com>\n"
-"Language-Team: Greek (Greece) (http://www.transifex.com/tonio/modoboa/language/el_GR/)\n"
+"Language-Team: Greek (Greece) (http://www.transifex.com/tonio/modoboa/"
+"language/el_GR/)\n"
+"Language: el_GR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: el_GR\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: forms.py:29
-msgid "Check to activate this filters set"
-msgstr "Επιλέξτε για να ενεργοποιηθεί αυτό το σετ φίλτρων"
-
-#: forms.py:83 templates/modoboa_sievefilters/guieditor.html:6
-msgid "Name"
-msgstr "Όνομα"
-
-#: forms.py:85
-msgid "All of the following"
-msgstr "Όλα τα παρακάτω"
-
-#: forms.py:86
-msgid "Any of the following"
-msgstr "Οποιοδήποτε από τα παρακάτων"
-
-#: forms.py:87
-msgid "All messages"
-msgstr "Όλα τα μηνύματα"
-
-#: forms.py:93
+#: constants.py:6
 msgid "contains"
 msgstr "περιέχει"
 
-#: forms.py:94
+#: constants.py:7
 msgid "does not contain"
 msgstr "δεν περιέχει"
 
-#: forms.py:95
+#: constants.py:8
 msgid "is"
 msgstr "είναι"
 
-#: forms.py:96
+#: constants.py:9
 msgid "is not"
 msgstr "δεν είναι"
 
-#: forms.py:101
+#: constants.py:14
 msgid "Subject"
 msgstr "Τίτλος"
 
-#: forms.py:104
+#: constants.py:17
 msgid "Sender"
 msgstr "Αποστολέας"
 
-#: forms.py:107
+#: constants.py:20
 msgid "Recipient"
 msgstr "Παραλήπτης"
 
-#: forms.py:110
+#: constants.py:23
 msgid "Cc"
 msgstr "Cc"
 
-#: forms.py:112
+#: constants.py:25
 msgid "Size"
 msgstr "Μέγεθος"
 
-#: forms.py:113
+#: constants.py:26
 msgid "is greater than"
 msgstr "είναι μεγαλύτερο από"
 
-#: forms.py:114
+#: constants.py:27
 msgid "is less than"
 msgstr "είναι μικρότερο από"
 
-#: forms.py:118
+#: constants.py:31
 msgid "Move message to"
 msgstr "Μετακίνηση μηνυμάτων προς"
 
-#: forms.py:120
+#: constants.py:36 constants.py:44
+msgid "Keep local copy"
+msgstr ""
+
+#: constants.py:40
 msgid "Redirect message to"
 msgstr "Ανακατεύθυνση μηνυμάτων προς"
 
-#: forms.py:122
+#: constants.py:48
 msgid "Reject message"
 msgstr "Απόρριψη μηνύματος"
 
-#: forms.py:124
+#: constants.py:50
 msgid "Stop processing"
 msgstr "Ακύρωση επεξεργασίας"
 
-#: forms.py:137
+#: forms.py:33
+msgid "Check to activate this filters set"
+msgstr "Επιλέξτε για να ενεργοποιηθεί αυτό το σετ φίλτρων"
+
+#: forms.py:87 templates/modoboa_sievefilters/guieditor.html:6
+msgid "Name"
+msgstr "Όνομα"
+
+#: forms.py:89
+msgid "Match type"
+msgstr ""
+
+#: forms.py:90
+msgid "All of the following"
+msgstr "Όλα τα παρακάτω"
+
+#: forms.py:91
+msgid "Any of the following"
+msgstr "Οποιοδήποτε από τα παρακάτων"
+
+#: forms.py:92
+msgid "All messages"
+msgstr "Όλα τα μηνύματα"
+
+#: forms.py:107
 msgid "Wrong filter name"
 msgstr "Λάθος όνομα φίλτρου"
 
@@ -204,20 +213,21 @@ msgstr "Ο φάκελος που θα πηγαίνουν τα πρόχειρα"
 msgid "Message filters"
 msgstr "Φίλτρα μηνυμάτων"
 
-#: imaputils.py:131
+#: imaputils.py:99
 msgid "Failed to retrieve hierarchy delimiter"
 msgstr "Αποτυχία κατά την ανάκτηση της οροθετημένης ιεραρχίας"
 
-#: imaputils.py:173
+#: imaputils.py:135
 #, python-format
 msgid "Connection to IMAP server failed: %s"
 msgstr "Η σύνδεση στο διακομιστή IMAP απέτυχε:%s"
 
-#: lib.py:44
+#: lib.py:54
 msgid "Connection to MANAGESIEVE server failed, check your configuration"
-msgstr "Η σύνδεση με τον εξυπηρετητή MANAGESIEVE απέτυχε, ελέγξτε τις ρυθμίσεις σας "
+msgstr ""
+"Η σύνδεση με τον εξυπηρετητή MANAGESIEVE απέτυχε, ελέγξτε τις ρυθμίσεις σας "
 
-#: lib.py:92
+#: lib.py:98
 msgid "Not enough space on server"
 msgstr "Δεν υπάρχει διαθέσιμος χώρος στον εξυπηρετητή"
 
@@ -234,7 +244,7 @@ msgid "Conditions"
 msgstr "Συνθήκες"
 
 #: templates/modoboa_sievefilters/filter.html:20
-#: templates/modoboa_sievefilters/guieditor.html:5 views.py:102
+#: templates/modoboa_sievefilters/guieditor.html:5 views.py:104
 msgid "Actions"
 msgstr "Ενέργειες"
 
@@ -257,93 +267,95 @@ msgstr "ενεργό"
 #: templates/modoboa_sievefilters/index.html:101
 msgid ""
 "No filters set defined yet. You must create one in order to define filters."
-msgstr "Δεν έχουν οριστεί ακόμη φίλτρα. Πρέπει να δημιουργήσετε τουλάχιστον ένα για να καθοριστούν τα φίλτρα"
+msgstr ""
+"Δεν έχουν οριστεί ακόμη φίλτρα. Πρέπει να δημιουργήσετε τουλάχιστον ένα για "
+"να καθοριστούν τα φίλτρα"
 
-#: templatetags/sfilters_tags.py:19
+#: templatetags/sfilters_tags.py:21
 msgid "New filters set"
 msgstr "Νέο σετ φίλτρων"
 
-#: templatetags/sfilters_tags.py:37 views.py:151
+#: templatetags/sfilters_tags.py:39 views.py:153
 msgid "New filter"
 msgstr "Νέο φίλτρο"
 
-#: templatetags/sfilters_tags.py:48
+#: templatetags/sfilters_tags.py:50
 msgid "Save filters set"
 msgstr "Αποθήκευση του σετ φίλτρων"
 
-#: templatetags/sfilters_tags.py:56
+#: templatetags/sfilters_tags.py:58
 msgid "Activate filters set"
 msgstr "Ενεργοποίηση του σετ φίλτρων"
 
-#: templatetags/sfilters_tags.py:61
+#: templatetags/sfilters_tags.py:63
 msgid "Remove filters set"
 msgstr "Αφαίρεση του σετ φίλτρων"
 
-#: templatetags/sfilters_tags.py:65
+#: templatetags/sfilters_tags.py:67
 msgid "Download"
 msgstr "Λήψη"
 
-#: templatetags/sfilters_tags.py:80 views.py:173
+#: templatetags/sfilters_tags.py:82 views.py:175
 msgid "Edit filter"
 msgstr "Επεξεργασία φίλτρου"
 
-#: templatetags/sfilters_tags.py:88
+#: templatetags/sfilters_tags.py:90
 msgid "Remove this filter"
 msgstr "Αφαίρεση αυτού του φίλτρου"
 
-#: templatetags/sfilters_tags.py:97
+#: templatetags/sfilters_tags.py:99
 msgid "Move this filter up"
 msgstr "Μετακίνηση αυτού του φίλτρου πάνω"
 
-#: templatetags/sfilters_tags.py:106
+#: templatetags/sfilters_tags.py:108
 msgid "Move this filter down"
 msgstr "Μετακίνηση αυτού του φίλτρου κάτω"
 
-#: views.py:85
+#: views.py:87
 msgid "Failed to retrieve filters set"
 msgstr "Σφάλμα κατά την την λήψη του σετ φίλτρων"
 
-#: views.py:154 views.py:247
+#: views.py:156 views.py:248
 msgid "Create"
 msgstr "Δημιουργία"
 
-#: views.py:159
+#: views.py:161
 msgid "Filter created"
 msgstr "Το φίλτρο δημιουργήθηκε"
 
-#: views.py:177
+#: views.py:179
 msgid "Update"
 msgstr "Ενημέρωση"
 
-#: views.py:184
+#: views.py:186
 msgid "Filter modified"
 msgstr "Το φίλτρο άλλαξε"
 
-#: views.py:208
+#: views.py:209
 msgid "Filter removed"
 msgstr "Το φίλτρο αφαιρέθηκε "
 
-#: views.py:209
+#: views.py:210
 msgid "Failed to remove filter"
 msgstr "Σφάλμα κατά την αφαίρεση του φίλτρου"
 
-#: views.py:224
+#: views.py:225
 msgid "Filters set saved"
 msgstr "Το σετ φίλτρων αποθηκεύτηκε"
 
-#: views.py:240
+#: views.py:241
 msgid "Filters set created"
 msgstr "Το σετ φίλτρων δημιουργήθηκε"
 
-#: views.py:245
+#: views.py:246
 msgid "Create a new filters set"
 msgstr "Δημιουργία νέου σετ φίλτρων"
 
-#: views.py:264
+#: views.py:265
 msgid "Filters set deleted"
 msgstr "Το σετ φίλτρων διαγράφηκε"
 
-#: views.py:277
+#: views.py:278
 msgid "Filters set activated"
 msgstr "Το σετ φίλτρων ενεργοποιήθηκε"
 
