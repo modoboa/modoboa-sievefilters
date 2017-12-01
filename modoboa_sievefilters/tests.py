@@ -127,6 +127,7 @@ class SieveFiltersTestCase(ModoTestCase):
             "actions": 1,
             "action_name_0": "fileinto",
             "action_arg_0_0": "Trash",
+            "action_arg_0_1": True
         }
         response = self.ajax_post(url, data)
         self.assertEqual(response, "Filter modified")
