@@ -223,7 +223,7 @@ class FilterForm(forms.Form):
             tpl = lib.find_action_template(action)
             naction = [action]
             args = {}
-            for pos, argtpl in enumerate(tpl["args"]):
+            for pos, argtpl in enumerate(tpl.get("args", [])):
                 fieldname = "action_arg_{}_{}".format(cpt, pos)
                 if fieldname not in self.cleaned_data:
                     continue
@@ -333,7 +333,7 @@ def build_filter_form_from_filter(request, name, fobj):
             action += (value, )
         actions += [action]
     form = FilterForm(conditions, actions, request)
-    form.fields["name"].initial = name
+    form.fields["name"].initial = smart_text(name)
     form.fields["match_type"].initial = match_type
     return form
 
