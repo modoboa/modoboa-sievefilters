@@ -3,11 +3,11 @@
 """Mock objects."""
 
 
-SAMPLE_SIEVE_SCRIPT = """require ["fileinto"];
+SAMPLE_SIEVE_SCRIPT = """require ["fileinto", "copy"];
 
 # Filter: test1
 if anyof (header :contains "To" "test1") {
-    fileinto "Test1";
+    fileinto :copy "Test1";
 }
 
 # Filter: test2

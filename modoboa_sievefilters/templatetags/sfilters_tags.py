@@ -8,6 +8,8 @@ from django.utils.translation import ugettext as _
 from modoboa.lib.web_utils import render_actions
 from modoboa.lib.templatetags.form_tags import configure_field_classes
 
+from .. import lib
+
 register = template.Library()
 
 
@@ -152,28 +154,31 @@ def display_condition(form, cnt):
 @register.simple_tag
 def display_action(form, cnt):
     action = form["action_name_%d" % cnt]
+    tpl = lib.find_action_template(action.initial)
     configure_field_classes(action)
     values = []
-    acnt = 0
     verrors = []
-    while True:
-        try:
-            field = form["action_arg_%d_%d" % (cnt, acnt)]
-            configure_field_classes(field)
-            values += [field]
-            if field.errors:
-                verrors += field.errors
-            acnt += 1
-        except KeyError:
-            break
+    for pos, argtpl in enumerate(tpl.get("args", [])):
+        fieldname = "action_arg_{}_{}".format(cnt, pos)
+        if fieldname not in form.fields:
+            continue
+        field = form[fieldname]
+        configure_field_classes(field)
+        arg = {"field": field}
+        if field.errors:
+            verrors += field.errors
+        if argtpl["type"] == "boolean":
+            arg["checkbox"] = True
+        values += [arg]
     t = template.Template("""
 <div id="action_{{ idx }}" class="item">
-<div class="col-lg-5 col-md-5 col-sm-5">
+<div class="col-sm-4">
   {{ afield }}
   </div>
-  {% for v in values %}
-    <div class="col-lg-5 col-md-5 col-sm-5">{{ v }}</div>
-  {% endfor %}{{ verrors }}
+  <div class="col-sm-6">
+  {% for v in values %}{% if v.checkbox %}<div class="checkbox"><label>{{ v.field }} {{ v.field.label }}</label></div>{% else %}{{ v.field }}{% endif %}{% endfor %}
+  {{ verrors }}
+  </div>
 </div>
 """)
     return t.render(template.Context({
