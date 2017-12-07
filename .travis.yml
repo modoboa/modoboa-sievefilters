@@ -27,3 +27,17 @@ script:
 after_success:
   - codecov
 
+before_deploy:
+  - cd ../modoboa_sievefilters
+  - django-admin compilemessages
+  - cd ..
+
+deploy:
+  provider: pypi
+  user: tonio
+  secure:
+    secure: "HuXihWm1prcTHTDP37Mruf0hUqWSW3l38t3zQ94t6rchjnLU3J8H0G6nnonhrmHCVpbfgx04vvTS12kr38XgBDCi2ADh7ET5wxTkFoPCuLnoELSPWXNeVvLZmVOzrbjIb76pzAzI/wTOhVsJtrmKBY1mhMqadq4OUz/gWZaB2sE="
+  skip_cleanup: true
+  on:
+    tags: true
+    python: '3.6'
