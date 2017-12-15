@@ -25,4 +25,5 @@ class SieveFilters(ModoExtension):
         param_tools.registry.add(
             "user", forms.UserSettings, ugettext_lazy("Message filters"))
 
+
 exts_pool.register_extension(SieveFilters)

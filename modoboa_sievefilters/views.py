@@ -99,12 +99,12 @@ def getfs(request, name):
             "modoboa_sievefilters/guieditor.html", {"fs": content})
 
     menu = (
-        u"<ul id='fsetmenu' class='nav nav-sidebar'>"
-        u"<li class='nav-header'>{}</li>{}</ul>".format(
+        "<ul id='fsetmenu' class='nav nav-sidebar'>"
+        "<li class='nav-header'>{}</li>{}</ul>".format(
             _("Actions"), fset_menu(editormode, name)
         )
     )
-    resp = dict(menu=menu, content=htmlcontent)
+    resp = {'menu': menu, 'content': htmlcontent}
     return render_to_json_response(resp)
 
 
@@ -149,13 +149,13 @@ def submitfilter(
 @login_required
 @needs_mailbox()
 def newfilter(request, setname, tplname="modoboa_sievefilters/filter.html"):
-    ctx = dict(
-        title=_("New filter"),
-        formid="filterform",
-        action=reverse("modoboa_sievefilters:filter_add", args=[setname]),
-        action_label=_("Create"),
-        action_classes="submit"
-    )
+    ctx = {
+        "title": _("New filter"),
+        "formid": "filterform",
+        "action": reverse("modoboa_sievefilters:filter_add", args=[setname]),
+        "action_label": _("Create"),
+        "action_classes": "submit"
+    }
     if request.method == "POST":
         return submitfilter(
             request, setname, _("Filter created"), tplname, ctx
@@ -171,14 +171,14 @@ def newfilter(request, setname, tplname="modoboa_sievefilters/filter.html"):
 @login_required
 @needs_mailbox()
 def editfilter(request, setname, fname, tplname="modoboa_sievefilters/filter.html"):
-    ctx = dict(
-        title=_("Edit filter"),
-        formid="filterform",
-        action=reverse("modoboa_sievefilters:filter_change",
-                       args=[setname, fname]),
-        action_label=_("Update"),
-        action_classes="submit"
-    )
+    ctx = {
+        "title": _("Edit filter"),
+        "formid": "filterform",
+        "action": reverse("modoboa_sievefilters:filter_change",
+                          args=[setname, fname]),
+        "action_label": _("Update"),
+        "action_classes": "submit"
+    }
     sc = SieveClient(user=request.user.username,
                      password=request.session["password"])
     if request.method == "POST":
@@ -261,9 +261,11 @@ def remove_filters_set(request, name):
                      password=request.session["password"])
     sc.deletescript(name)
     acs, scripts = sc.listscripts()
-    return render_to_json_response(dict(
-        respmsg=_("Filters set deleted"), newfs=acs
-    ))
+    ctx = {
+        "respmsg": _("Filters set deleted"),
+        "newfs": acs,
+    }
+    return render_to_json_response(ctx)
 
 
 @login_required

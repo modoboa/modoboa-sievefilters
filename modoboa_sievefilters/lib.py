@@ -11,7 +11,6 @@ from sievelib import managesieve
 from sievelib.parser import Parser
 import six
 
-from django.utils.encoding import smart_bytes
 from django.utils.translation import ugettext as _
 
 from modoboa.lib.connections import ConnectionsManager, ConnectionError
@@ -46,7 +45,7 @@ class SieveClient(object):
             authmech = None
         try:
             ret = self.msc.connect(user, password,
-                starttls=conf["starttls"], authmech=authmech)
+                                   starttls=conf["starttls"], authmech=authmech)
         except managesieve.Error:
             ret = False
         if not ret:
