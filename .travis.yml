@@ -1,29 +1,48 @@
 language: python
-cache: pip
 python:
-  - '2.7'
-  - '3.4'
-  - '3.6'
+  - "2.7"
+  - "3.4"
+  - "3.5"
+  - "3.6"
+
+env:
+  global:
+    - PYTHONWARNINGS="default,ignore::PendingDeprecationWarning,ignore::ResourceWarning"
+  matrix:
+    - DB="POSTGRESQL"
+
+sudo: false
+
+cache: pip
+
 services:
   - postgres
+
 before_install:
   - pip install codecov
-  - pip install -q psycopg2
+  - if [[ $DB = "POSTGRESQL" ]]; then pip install -q psycopg2; fi
+  - pip install -e git+https://github.com/tonioo/modoboa.git#egg=modoboa
+
 install:
-  - pip install -e git+https://github.com/modoboa/modoboa#egg=modoboa
-  - pip install -q factory-boy testfixtures
+  - pip install -q -r requirements.txt
+  - pip install -q -r test-requirements.txt
   - python setup.py -q develop
+
 before_script:
-  - psql -c 'create database modoboa_test;' -U postgres
+  - if [[ $DB = "POSTGRESQL" ]]; then psql -c "CREATE DATABASE modoboa_test;" -U postgres; fi
+
 script:
   - cd test_project
   - coverage run --source ../modoboa_sievefilters manage.py test modoboa_sievefilters
+
 after_success:
   - codecov
+
 before_deploy:
   - cd ../modoboa_sievefilters
   - django-admin compilemessages
   - cd ..
+
 deploy:
   provider: pypi
   user: tonio
