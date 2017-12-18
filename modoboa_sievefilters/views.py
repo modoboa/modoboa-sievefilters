@@ -9,7 +9,7 @@ from sievelib.commands import BadArgument, BadValue
 from sievelib.managesieve import Error
 
 from django.contrib.auth.decorators import login_required
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from django.template.loader import render_to_string
