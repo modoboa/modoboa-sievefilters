@@ -6,12 +6,8 @@ from sievelib import commands
 from sievelib.managesieve import SUPPORTED_AUTH_MECHS
 
 from django import forms
-from django.forms.widgets import (
-    RadioFieldRenderer, RadioSelect, RadioChoiceInput)
 from django.http import QueryDict
 from django.utils.encoding import smart_text
-from django.utils.html import conditional_escape
-from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext as _, ugettext_lazy
 
 from modoboa.admin.templatetags.admin_tags import gender
@@ -34,46 +30,6 @@ class FiltersSetForm(forms.Form):
     )
 
 
-class CustomRadioInput(RadioChoiceInput):
-
-    def __unicode__(self):
-        return self.render()
-
-    def render(self, name=None, value=None, attrs=None, choices=()):
-        name = name or self.name
-        value = value or self.value
-        attrs = attrs or self.attrs
-        if 'id' in self.attrs:
-            label_for = ' for="%s_%s"' % (self.attrs['id'], self.index)
-        else:
-            label_for = ''
-        choice_label = conditional_escape(smart_text(self.choice_label))
-        return mark_safe(
-            u'<label%s class="radio-inline">%s %s</label>'
-            % (label_for, self.tag(), choice_label)
-        )
-
-
-class CustomRadioFieldRenderer(RadioFieldRenderer):
-
-    def __iter__(self):
-        for i, choice in enumerate(self.choices):
-            yield CustomRadioInput(
-                self.name, self.value, self.attrs.copy(), choice, i)
-
-    def __getitem__(self, idx):
-        choice = self.choices[idx]
-        return CustomRadioInput(
-            self.name, self.value, self.attrs.copy(), choice, idx)
-
-    def render(self):
-        return mark_safe(u'\n'.join([smart_text(w) for w in self]))
-
-
-class CustomRadioSelect(RadioSelect):
-    renderer = CustomRadioFieldRenderer
-
-
 class FilterForm(forms.Form):
     """A dynamic form to edit a filter."""
 
@@ -91,7 +47,7 @@ class FilterForm(forms.Form):
                      ("anyof", _("Any of the following")),
                      ("all", _("All messages"))],
             initial="anyof",
-            widget=CustomRadioSelect()
+            widget=form_utils.HorizontalRadioSelect()
         )
 
         self.conds_cnt = 0
@@ -409,7 +365,7 @@ class UserSettings(param_forms.UserParametersForm):
         label=_("Editor mode"),
         choices=[("raw", "raw"), ("gui", "simplified")],
         help_text=_("Select the mode you want the editor to work in"),
-        widget=form_utils.InlineRadioSelect(attrs={"type": "checkbox"})
+        widget=form_utils.HorizontalRadioSelect()
     )
 
     sep2 = form_utils.SeparatorField(label=_("Mailboxes"))

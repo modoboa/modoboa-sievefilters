@@ -189,7 +189,7 @@ class IMAPconnector(object):
                     descr = mailboxes[idx]
                     break
             if not mdm_found:
-                descr = dict(name=name)
+                descr = {"name": name}
                 newmboxes += [descr]
 
             if '\\Marked' in flags or '\\UnMarked' not in flags:

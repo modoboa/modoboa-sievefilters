@@ -1,7 +1,7 @@
 # coding: utf-8
 """Declare and register the sievefilters extension."""
 
-from django.core.urlresolvers import reverse_lazy
+from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy
 
 from modoboa.core.extensions import ModoExtension, exts_pool
@@ -24,5 +24,6 @@ class SieveFilters(ModoExtension):
             "global", forms.ParametersForm, ugettext_lazy("Sieve filters"))
         param_tools.registry.add(
             "user", forms.UserSettings, ugettext_lazy("Message filters"))
+
 
 exts_pool.register_extension(SieveFilters)
