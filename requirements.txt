@@ -1,2 +1,2 @@
-modoboa>=1.8.2
+modoboa>=1.10.0
 sievelib>=1.1.0
