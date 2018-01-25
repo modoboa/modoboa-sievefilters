@@ -304,88 +304,91 @@ def supported_auth_mechs():
 class ParametersForm(param_forms.AdminParametersForm):
     app = "modoboa_sievefilters"
 
-    sep1 = form_utils.SeparatorField(label=_("ManageSieve settings"))
+    sep1 = form_utils.SeparatorField(
+        label=ugettext_lazy("ManageSieve settings"))
 
     server = forms.CharField(
-        label=_("Server address"),
+        label=ugettext_lazy("Server address"),
         initial="127.0.0.1",
-        help_text=_("Address of your MANAGESIEVE server"),
+        help_text=ugettext_lazy("Address of your MANAGESIEVE server"),
         widget=forms.TextInput(attrs={"class": "form-control"})
     )
 
     port = forms.IntegerField(
-        label=_("Server port"),
+        label=ugettext_lazy("Server port"),
         initial=4190,
-        help_text=_("Listening port of your MANAGESIEVE server"),
+        help_text=ugettext_lazy("Listening port of your MANAGESIEVE server"),
         widget=forms.TextInput(attrs={"class": "form-control"})
     )
 
     starttls = form_utils.YesNoField(
-        label=_("Connect using STARTTLS"),
+        label=ugettext_lazy("Connect using STARTTLS"),
         initial=False,
-        help_text=_("Use the STARTTLS extension")
+        help_text=ugettext_lazy("Use the STARTTLS extension")
     )
 
     authentication_mech = forms.ChoiceField(
-        label=_("Authentication mechanism"),
+        label=ugettext_lazy("Authentication mechanism"),
         choices=supported_auth_mechs(),
         initial="auto",
-        help_text=_("Prefered authentication mechanism"),
+        help_text=ugettext_lazy("Prefered authentication mechanism"),
         widget=forms.Select(attrs={"class": "form-control"})
     )
 
-    sep2 = form_utils.SeparatorField(label=_("IMAP settings"))
+    sep2 = form_utils.SeparatorField(label=ugettext_lazy("IMAP settings"))
 
     imap_server = forms.CharField(
-        label=_("Server address"),
+        label=ugettext_lazy("Server address"),
         initial="127.0.0.1",
-        help_text=_("Address of your IMAP server")
+        help_text=ugettext_lazy("Address of your IMAP server")
     )
 
     imap_secured = form_utils.YesNoField(
-        label=_("Use a secured connection"),
+        label=ugettext_lazy("Use a secured connection"),
         initial=False,
-        help_text=_("Use a secured connection to access IMAP server")
+        help_text=ugettext_lazy(
+            "Use a secured connection to access IMAP server")
     )
 
     imap_port = forms.IntegerField(
-        label=_("Server port"),
+        label=ugettext_lazy("Server port"),
         initial=143,
-        help_text=_("Listening port of your IMAP server")
+        help_text=ugettext_lazy("Listening port of your IMAP server")
     )
 
 
 class UserSettings(param_forms.UserParametersForm):
     app = "modoboa_sievefilters"
 
-    sep1 = form_utils.SeparatorField(label=_("General"))
+    sep1 = form_utils.SeparatorField(label=ugettext_lazy("General"))
 
     editor_mode = forms.ChoiceField(
         initial="gui",
-        label=_("Editor mode"),
+        label=ugettext_lazy("Editor mode"),
         choices=[("raw", "raw"), ("gui", "simplified")],
-        help_text=_("Select the mode you want the editor to work in"),
+        help_text=ugettext_lazy(
+            "Select the mode you want the editor to work in"),
         widget=form_utils.HorizontalRadioSelect()
     )
 
-    sep2 = form_utils.SeparatorField(label=_("Mailboxes"))
+    sep2 = form_utils.SeparatorField(label=ugettext_lazy("Mailboxes"))
 
     trash_folder = forms.CharField(
         initial="Trash",
-        label=_("Trash folder"),
-        help_text=_("Folder where deleted messages go")
+        label=ugettext_lazy("Trash folder"),
+        help_text=ugettext_lazy("Folder where deleted messages go")
     )
 
     sent_folder = forms.CharField(
         initial="Sent",
-        label=_("Sent folder"),
-        help_text=_("Folder where copies of sent messages go")
+        label=ugettext_lazy("Sent folder"),
+        help_text=ugettext_lazy("Folder where copies of sent messages go")
     )
 
     drafts_folder = forms.CharField(
         initial="Drafts",
-        label=_("Drafts folder"),
-        help_text=_("Folder where drafts go")
+        label=ugettext_lazy("Drafts folder"),
+        help_text=ugettext_lazy("Folder where drafts go")
     )
 
     @staticmethod

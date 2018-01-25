@@ -13,7 +13,7 @@ from . import forms
 
 class SieveFilters(ModoExtension):
     name = "modoboa_sievefilters"
-    label = "Sieve filters"
+    label = ugettext_lazy("Sieve filters")
     version = __version__
     description = ugettext_lazy("Plugin to easily create server-side filters")
     url = "sfilters"
