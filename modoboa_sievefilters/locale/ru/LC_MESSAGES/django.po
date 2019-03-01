@@ -1,23 +1,23 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
+# Ravil Kadyrbayev, 2015
+# Yuriy Matskanyuk <umackanuk@gmail.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Modoboa\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-12-01 18:04+0100\n"
-"PO-Revision-Date: 2013-12-03 09:35+0000\n"
-"Last-Translator: Antoine Nguyen <tonio@ngyn.org>\n"
-"Language-Team: Russian (http://www.transifex.com/projects/p/modoboa/language/"
-"ru/)\n"
-"Language: ru\n"
+"PO-Revision-Date: 2018-11-27 18:02+0000\n"
+"Last-Translator: Yuriy Matskanyuk <umackanuk@gmail.com>\n"
+"Language-Team: Russian (http://www.transifex.com/tonio/modoboa/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 #: constants.py:6
 msgid "contains"
@@ -76,14 +76,12 @@ msgid "Redirect message to"
 msgstr "Перенаправление сообщение для"
 
 #: constants.py:48
-#, fuzzy
-#| msgid "Redirect message to"
 msgid "Reject message"
-msgstr "Перенаправление сообщение для"
+msgstr ""
 
 #: constants.py:50
 msgid "Stop processing"
-msgstr ""
+msgstr "Остановить обработку"
 
 #: forms.py:33
 msgid "Check to activate this filters set"
@@ -110,9 +108,8 @@ msgid "All messages"
 msgstr "Все сообщения"
 
 #: forms.py:107
-#, fuzzy
 msgid "Wrong filter name"
-msgstr "Имя файла"
+msgstr "Неверное имя фильтра"
 
 #: forms.py:351
 msgid "ManageSieve settings"
@@ -151,30 +148,24 @@ msgid "Prefered authentication mechanism"
 msgstr "Предпочтительный механизм аутентификации"
 
 #: forms.py:381
-#, fuzzy
-#| msgid "ManageSieve settings"
 msgid "IMAP settings"
-msgstr "Настройки фильтров содержания"
+msgstr ""
 
 #: forms.py:386
-#, fuzzy
-#| msgid "Address of your MANAGESIEVE server"
 msgid "Address of your IMAP server"
-msgstr "Адрес вашего MANAGESIEVE сервера"
+msgstr ""
 
 #: forms.py:390
 msgid "Use a secured connection"
-msgstr ""
+msgstr "Использовать защищенное соединение"
 
 #: forms.py:392
 msgid "Use a secured connection to access IMAP server"
 msgstr ""
 
 #: forms.py:398
-#, fuzzy
-#| msgid "Listening port of your MANAGESIEVE server"
 msgid "Listening port of your IMAP server"
-msgstr "Порт вашего MANAGESIEVE сервера"
+msgstr ""
 
 #: forms.py:405
 msgid "General"
@@ -190,11 +181,11 @@ msgstr "Выберите нужный режим для работы редак�
 
 #: forms.py:415
 msgid "Mailboxes"
-msgstr ""
+msgstr "Почтовые ящики"
 
 #: forms.py:419
 msgid "Trash folder"
-msgstr ""
+msgstr "Корзина"
 
 #: forms.py:420
 msgid "Folder where deleted messages go"
@@ -202,7 +193,7 @@ msgstr ""
 
 #: forms.py:425
 msgid "Sent folder"
-msgstr ""
+msgstr "Отправленные"
 
 #: forms.py:426
 msgid "Folder where copies of sent messages go"
@@ -210,7 +201,7 @@ msgstr ""
 
 #: forms.py:431
 msgid "Drafts folder"
-msgstr ""
+msgstr "Черновики"
 
 #: forms.py:432
 msgid "Folder where drafts go"
@@ -222,16 +213,13 @@ msgid "Message filters"
 msgstr "Фильтры сообщений"
 
 #: imaputils.py:99
-#, fuzzy
-#| msgid "Failed to retrieve filters set"
 msgid "Failed to retrieve hierarchy delimiter"
-msgstr "Не удалось получить набор фильтров"
+msgstr ""
 
 #: imaputils.py:135
-#, fuzzy, python-format
-#| msgid "Connection to MANAGESIEVE server failed, check your configuration"
+#, python-format
 msgid "Connection to IMAP server failed: %s"
-msgstr "Соединение с сервером MANAGESIEVE не удалось, проверьте конфигурацию"
+msgstr ""
 
 #: lib.py:54
 msgid "Connection to MANAGESIEVE server failed, check your configuration"

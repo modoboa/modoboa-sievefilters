@@ -1,24 +1,22 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Martin Persson <martin.jens.persson@gmail.com>, 2014
-# Olle Gustafsson <olle@dalnix.se>, 2013
-# Olle Gustafsson <olle@dalnix.se>, 2013,2015
+# Olle Gustafsson <olle@dalnix.se>, 2013,2015,2017-2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Modoboa\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-12-01 18:04+0100\n"
-"PO-Revision-Date: 2015-01-13 15:18+0000\n"
+"PO-Revision-Date: 2018-08-14 08:14+0000\n"
 "Last-Translator: Olle Gustafsson <olle@dalnix.se>\n"
-"Language-Team: Swedish (http://www.transifex.com/projects/p/modoboa/language/"
-"sv/)\n"
-"Language: sv\n"
+"Language-Team: Swedish (http://www.transifex.com/tonio/modoboa/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: constants.py:6
@@ -71,21 +69,19 @@ msgstr "Flytta meddelande till"
 
 #: constants.py:36 constants.py:44
 msgid "Keep local copy"
-msgstr ""
+msgstr "Behåll lokal kopia"
 
 #: constants.py:40
 msgid "Redirect message to"
 msgstr "Omdirigera meddelande till"
 
 #: constants.py:48
-#, fuzzy
-#| msgid "Redirect message to"
 msgid "Reject message"
-msgstr "Omdirigera meddelande till"
+msgstr "Avvisa meddelande"
 
 #: constants.py:50
 msgid "Stop processing"
-msgstr ""
+msgstr "Sluta bearbeta"
 
 #: forms.py:33
 msgid "Check to activate this filters set"
@@ -97,7 +93,7 @@ msgstr "Namn"
 
 #: forms.py:89
 msgid "Match type"
-msgstr ""
+msgstr "Matcha typ"
 
 #: forms.py:90
 msgid "All of the following"
@@ -152,30 +148,24 @@ msgid "Prefered authentication mechanism"
 msgstr "Önskad autentiseringsmekanism"
 
 #: forms.py:381
-#, fuzzy
-#| msgid "ManageSieve settings"
 msgid "IMAP settings"
-msgstr "ManageSieve inställningar"
+msgstr "IMAP inställningar"
 
 #: forms.py:386
-#, fuzzy
-#| msgid "Address of your MANAGESIEVE server"
 msgid "Address of your IMAP server"
-msgstr "Adressen till din MANAGESIEVE server"
+msgstr "Adress för din IMAP server"
 
 #: forms.py:390
 msgid "Use a secured connection"
-msgstr ""
+msgstr "Använd en säker anslutning"
 
 #: forms.py:392
 msgid "Use a secured connection to access IMAP server"
-msgstr ""
+msgstr "Använd en säker anslutning för att ansluta till IMAP server"
 
 #: forms.py:398
-#, fuzzy
-#| msgid "Listening port of your MANAGESIEVE server"
 msgid "Listening port of your IMAP server"
-msgstr "MANAGESIEVE server lyssnar på port"
+msgstr "Lyssningsport för din IMAP server"
 
 #: forms.py:405
 msgid "General"
@@ -191,31 +181,31 @@ msgstr "Välj det läge du vill redigeraren att arbeta i"
 
 #: forms.py:415
 msgid "Mailboxes"
-msgstr ""
+msgstr "Brevlådor"
 
 #: forms.py:419
 msgid "Trash folder"
-msgstr ""
+msgstr "Skräpkatalog"
 
 #: forms.py:420
 msgid "Folder where deleted messages go"
-msgstr ""
+msgstr "Katalog där raderade meddelanden hamnar"
 
 #: forms.py:425
 msgid "Sent folder"
-msgstr ""
+msgstr "Skickat katalog"
 
 #: forms.py:426
 msgid "Folder where copies of sent messages go"
-msgstr ""
+msgstr "Katalog där en kopia av skickade meddelanden hamnar"
 
 #: forms.py:431
 msgid "Drafts folder"
-msgstr ""
+msgstr "Utkast katalog"
 
 #: forms.py:432
 msgid "Folder where drafts go"
-msgstr ""
+msgstr "Katalog där utkast sparas"
 
 #: handlers.py:19 modo_extension.py:26
 #: templates/modoboa_sievefilters/index.html:4
@@ -223,24 +213,17 @@ msgid "Message filters"
 msgstr "Meddelandefilter"
 
 #: imaputils.py:99
-#, fuzzy
-#| msgid "Failed to retrieve filters set"
 msgid "Failed to retrieve hierarchy delimiter"
-msgstr "Det gick inte att hämta filteruppsättning"
+msgstr "Misslyckades med att hämta hierarkinavgränsaren"
 
 #: imaputils.py:135
-#, fuzzy, python-format
-#| msgid "Connection to MANAGESIEVE server failed, check your configuration"
+#, python-format
 msgid "Connection to IMAP server failed: %s"
-msgstr ""
-"Anslutning till MANAGESIEVE servern misslyckades, kontrollera din "
-"konfiguration"
+msgstr "Anslutningen till IMAP servern misslyckades: %s"
 
 #: lib.py:54
 msgid "Connection to MANAGESIEVE server failed, check your configuration"
-msgstr ""
-"Anslutning till MANAGESIEVE servern misslyckades, kontrollera din "
-"konfiguration"
+msgstr "Anslutning till MANAGESIEVE servern misslyckades, kontrollera din konfiguration"
 
 #: lib.py:98
 msgid "Not enough space on server"
@@ -282,9 +265,7 @@ msgstr "aktivera"
 #: templates/modoboa_sievefilters/index.html:101
 msgid ""
 "No filters set defined yet. You must create one in order to define filters."
-msgstr ""
-"Inga filter uppsättningar definierade. Du måste skapa en uppsättning för att "
-"kunna definiera filter."
+msgstr "Inga filter uppsättningar definierade. Du måste skapa en uppsättning för att kunna definiera filter."
 
 #: templatetags/sfilters_tags.py:21
 msgid "New filters set"

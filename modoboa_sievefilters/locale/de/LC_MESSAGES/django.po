@@ -1,23 +1,26 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
+# Alexander Dube <adube@layerwerks.net>, 2017
+# Arledrian <hvuzgr@gmail.com>, 2017
 # Arvedui <arvedui@posteo.de>, 2014
-# controlc.de, 2015
+# Boris Andratzek <BAndratzek@LBV-net.de>, 2018
+# controlcde, 2015
 # Patrick Koetter <p@state-of-mind.de>, 2010
 msgid ""
 msgstr ""
 "Project-Id-Version: Modoboa\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-12-01 18:04+0100\n"
-"PO-Revision-Date: 2015-07-11 11:53+0000\n"
-"Last-Translator: controlc.de\n"
+"PO-Revision-Date: 2018-04-25 14:02+0000\n"
+"Last-Translator: Boris Andratzek <BAndratzek@LBV-net.de>\n"
 "Language-Team: German (http://www.transifex.com/tonio/modoboa/language/de/)\n"
-"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: constants.py:6
@@ -70,21 +73,19 @@ msgstr "Verschiebe Nachricht nach"
 
 #: constants.py:36 constants.py:44
 msgid "Keep local copy"
-msgstr ""
+msgstr "Behalte lokale Kopie"
 
 #: constants.py:40
 msgid "Redirect message to"
 msgstr "Leite Nachricht um zu"
 
 #: constants.py:48
-#, fuzzy
-#| msgid "Redirect message to"
 msgid "Reject message"
-msgstr "Leite Nachricht um zu"
+msgstr "E-Mail ablehnen"
 
 #: constants.py:50
 msgid "Stop processing"
-msgstr ""
+msgstr "Stoppe Bearbeitung"
 
 #: forms.py:33
 msgid "Check to activate this filters set"
@@ -96,7 +97,7 @@ msgstr "Name"
 
 #: forms.py:89
 msgid "Match type"
-msgstr ""
+msgstr "Vergleichte Typ"
 
 #: forms.py:90
 msgid "All of the following"
@@ -151,30 +152,24 @@ msgid "Prefered authentication mechanism"
 msgstr "Bevorzugte Authentifizierungsmethode"
 
 #: forms.py:381
-#, fuzzy
-#| msgid "ManageSieve settings"
 msgid "IMAP settings"
-msgstr "ManageSieve-Einstellungen"
+msgstr "IMAP-Einstellungen"
 
 #: forms.py:386
-#, fuzzy
-#| msgid "Address of your MANAGESIEVE server"
 msgid "Address of your IMAP server"
-msgstr "Adresse Ihres MANAGESIEVE-Servers"
+msgstr "Addresse Ihres IMAP-Servers"
 
 #: forms.py:390
 msgid "Use a secured connection"
-msgstr ""
+msgstr "Benutze eine sichere Verbindung"
 
 #: forms.py:392
 msgid "Use a secured connection to access IMAP server"
-msgstr ""
+msgstr "Benutze eine gesicherte Verbindung zum Zugriff auf den IMAP Server"
 
 #: forms.py:398
-#, fuzzy
-#| msgid "Listening port of your MANAGESIEVE server"
 msgid "Listening port of your IMAP server"
-msgstr "TCP-Port Ihres MANAGESIEVE-Servers"
+msgstr "TCPIP Port Ihres IMAP Servers"
 
 #: forms.py:405
 msgid "General"
@@ -190,31 +185,31 @@ msgstr "Wählen Sie den Modus aus, in dem der Editor arbeiten soll"
 
 #: forms.py:415
 msgid "Mailboxes"
-msgstr ""
+msgstr "E-Mail-Postfächer"
 
 #: forms.py:419
 msgid "Trash folder"
-msgstr ""
+msgstr "Papierkorb-Ordner"
 
 #: forms.py:420
 msgid "Folder where deleted messages go"
-msgstr ""
+msgstr "Ordner, in den gelöschte Nachrichten gehen"
 
 #: forms.py:425
 msgid "Sent folder"
-msgstr ""
+msgstr "Gesendet-Ordner"
 
 #: forms.py:426
 msgid "Folder where copies of sent messages go"
-msgstr ""
+msgstr "Ordner, in den Kopien gesendeter Nachrichten gehen"
 
 #: forms.py:431
 msgid "Drafts folder"
-msgstr ""
+msgstr "Entwürfe-Ordner"
 
 #: forms.py:432
 msgid "Folder where drafts go"
-msgstr ""
+msgstr "Ordner für Entwürfe"
 
 #: handlers.py:19 modo_extension.py:26
 #: templates/modoboa_sievefilters/index.html:4
@@ -222,24 +217,17 @@ msgid "Message filters"
 msgstr "Nachrichten-Filter"
 
 #: imaputils.py:99
-#, fuzzy
-#| msgid "Failed to retrieve filters set"
 msgid "Failed to retrieve hierarchy delimiter"
-msgstr "Konnte Filter-Satz nicht laden"
+msgstr ""
 
 #: imaputils.py:135
-#, fuzzy, python-format
-#| msgid "Connection to MANAGESIEVE server failed, check your configuration"
+#, python-format
 msgid "Connection to IMAP server failed: %s"
-msgstr ""
-"Verbindung zu MANAGESIEVE-Server fehlgeschlagen. Überprüfen Sie Ihre "
-"Konfiguration."
+msgstr "Verbindung zum IMAP-Server gescheitert: %s"
 
 #: lib.py:54
 msgid "Connection to MANAGESIEVE server failed, check your configuration"
-msgstr ""
-"Verbindung zu MANAGESIEVE-Server fehlgeschlagen. Überprüfen Sie Ihre "
-"Konfiguration."
+msgstr "Verbindung zu MANAGESIEVE-Server fehlgeschlagen. Überprüfen Sie Ihre Konfiguration."
 
 #: lib.py:98
 msgid "Not enough space on server"
@@ -281,9 +269,7 @@ msgstr "aktiv"
 #: templates/modoboa_sievefilters/index.html:101
 msgid ""
 "No filters set defined yet. You must create one in order to define filters."
-msgstr ""
-"Noch keine Filter-Sätze definiert. Sie müssen einen Satz erstellen, um "
-"diesem Filter hinzufügen zu können."
+msgstr "Noch keine Filter-Sätze definiert. Sie müssen einen Satz erstellen, um diesem Filter hinzufügen zu können."
 
 #: templatetags/sfilters_tags.py:21
 msgid "New filters set"

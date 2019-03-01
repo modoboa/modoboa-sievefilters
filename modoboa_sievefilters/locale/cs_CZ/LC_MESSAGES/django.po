@@ -1,23 +1,23 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
-# Miroslav Abrahám <miris@kunago.com>, 2013-2015
+# Peter Sveter, 2016-2017
+# Jarda Tesar <intossh@gmail.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Modoboa\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-12-01 18:04+0100\n"
-"PO-Revision-Date: 2015-01-06 10:05+0000\n"
-"Last-Translator: Miroslav Abrahám <miris@kunago.com>\n"
-"Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/"
-"modoboa/language/cs_CZ/)\n"
-"Language: cs_CZ\n"
+"PO-Revision-Date: 2018-08-10 11:55+0000\n"
+"Last-Translator: Jarda Tesar <intossh@gmail.com>\n"
+"Language-Team: Czech (Czech Republic) (http://www.transifex.com/tonio/modoboa/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"Language: cs_CZ\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
 #: constants.py:6
 msgid "contains"
@@ -69,25 +69,23 @@ msgstr "Přesunout zprávu do"
 
 #: constants.py:36 constants.py:44
 msgid "Keep local copy"
-msgstr ""
+msgstr "Ponechat místní kopii"
 
 #: constants.py:40
 msgid "Redirect message to"
 msgstr "Přesměrovat zprávu na"
 
 #: constants.py:48
-#, fuzzy
-#| msgid "Redirect message to"
 msgid "Reject message"
-msgstr "Přesměrovat zprávu na"
+msgstr "Odmítnout zprávu"
 
 #: constants.py:50
 msgid "Stop processing"
-msgstr ""
+msgstr "Ukončit zpracování"
 
 #: forms.py:33
 msgid "Check to activate this filters set"
-msgstr "Zatrhněte pole pro povolení této sady filtrů"
+msgstr "Zatrhněte pole pro aktivaci této sady filtrů"
 
 #: forms.py:87 templates/modoboa_sievefilters/guieditor.html:6
 msgid "Name"
@@ -95,7 +93,7 @@ msgstr "Jméno"
 
 #: forms.py:89
 msgid "Match type"
-msgstr ""
+msgstr "Musí souhlasit"
 
 #: forms.py:90
 msgid "All of the following"
@@ -150,30 +148,24 @@ msgid "Prefered authentication mechanism"
 msgstr "Preferovaný režim ověření"
 
 #: forms.py:381
-#, fuzzy
-#| msgid "ManageSieve settings"
 msgid "IMAP settings"
-msgstr "Nastavení ManageSieve"
+msgstr "Nastavení IMAP"
 
 #: forms.py:386
-#, fuzzy
-#| msgid "Address of your MANAGESIEVE server"
 msgid "Address of your IMAP server"
-msgstr "Adresa vašeho serveru ManegeSieve"
+msgstr "Adresa vašeho IMAP serveru"
 
 #: forms.py:390
 msgid "Use a secured connection"
-msgstr ""
+msgstr "Použít zabezpečené připojení"
 
 #: forms.py:392
 msgid "Use a secured connection to access IMAP server"
-msgstr ""
+msgstr "Použít zabezpečené připojení pro přístup k IMAP serveru"
 
 #: forms.py:398
-#, fuzzy
-#| msgid "Listening port of your MANAGESIEVE server"
 msgid "Listening port of your IMAP server"
-msgstr "Port, na kterém naslouchá váš ManageSieve server"
+msgstr "Port, na kterém naslouchá váš IMAP server"
 
 #: forms.py:405
 msgid "General"
@@ -189,31 +181,31 @@ msgstr "Zvolte režim editoru textu, ve kterém si přejete pracovat"
 
 #: forms.py:415
 msgid "Mailboxes"
-msgstr ""
+msgstr "Schránky"
 
 #: forms.py:419
 msgid "Trash folder"
-msgstr ""
+msgstr "Složka koše"
 
 #: forms.py:420
 msgid "Folder where deleted messages go"
-msgstr ""
+msgstr "Složka pro smazané zprávy"
 
 #: forms.py:425
 msgid "Sent folder"
-msgstr ""
+msgstr "Složka odeslané pošty"
 
 #: forms.py:426
 msgid "Folder where copies of sent messages go"
-msgstr ""
+msgstr "Složka pro kopie odeslaných zpráv"
 
 #: forms.py:431
 msgid "Drafts folder"
-msgstr ""
+msgstr "Složka konceptů"
 
 #: forms.py:432
 msgid "Folder where drafts go"
-msgstr ""
+msgstr "Složka pro koncepty zpráv"
 
 #: handlers.py:19 modo_extension.py:26
 #: templates/modoboa_sievefilters/index.html:4
@@ -221,16 +213,13 @@ msgid "Message filters"
 msgstr "Filtry zpráv"
 
 #: imaputils.py:99
-#, fuzzy
-#| msgid "Failed to retrieve filters set"
 msgid "Failed to retrieve hierarchy delimiter"
-msgstr "Nebylo možné získat sadu filtrů"
+msgstr "Nebylo možné zjistit hierarchický oddělovač"
 
 #: imaputils.py:135
-#, fuzzy, python-format
-#| msgid "Connection to MANAGESIEVE server failed, check your configuration"
+#, python-format
 msgid "Connection to IMAP server failed: %s"
-msgstr "Spojení se serverem ManageSieve selhalo, zkontrolujte nastavení"
+msgstr "Spojení se serverem IMAP selhalo: %s"
 
 #: lib.py:54
 msgid "Connection to MANAGESIEVE server failed, check your configuration"
@@ -276,9 +265,7 @@ msgstr "aktivní"
 #: templates/modoboa_sievefilters/index.html:101
 msgid ""
 "No filters set defined yet. You must create one in order to define filters."
-msgstr ""
-"Dosud nebyla vytvořena žádná sada filtrů. Aby bylo možné vytvořit filtry, je "
-"nejprve potřeba vytvořit sadu filtrů."
+msgstr "Dosud nebyla vytvořena žádná sada filtrů. Aby bylo možné vytvořit filtry, je nejprve potřeba vytvořit sadu filtrů."
 
 #: templatetags/sfilters_tags.py:21
 msgid "New filters set"
@@ -366,7 +353,7 @@ msgstr "Sada filtrů vymazána"
 
 #: views.py:278
 msgid "Filters set activated"
-msgstr "Sada filtrů povolena"
+msgstr "Sada filtrů aktivována"
 
 #: views.py:307
 msgid "yes"
