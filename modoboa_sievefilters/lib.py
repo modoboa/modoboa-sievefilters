@@ -2,8 +2,6 @@
 
 """Internal tools."""
 
-from __future__ import print_function
-
 import ssl
 
 from sievelib.factory import FiltersSet

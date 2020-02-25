@@ -1,7 +1,5 @@
 """Custom forms."""
 
-from __future__ import unicode_literals
-
 from sievelib import commands
 from sievelib.managesieve import SUPPORTED_AUTH_MECHS
 

@@ -2,8 +2,6 @@
 
 """Custom views."""
 
-from __future__ import unicode_literals
-
 from rfc6266 import build_header
 from sievelib.commands import BadArgument, BadValue
 from sievelib.managesieve import Error
