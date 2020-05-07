@@ -2,7 +2,6 @@
 
 """Custom views."""
 
-from rfc6266 import build_header
 from sievelib.commands import BadArgument, BadValue
 from sievelib.managesieve import Error
 
@@ -28,6 +27,7 @@ from .forms import (
 )
 from .imaputils import get_imapconnector
 from .lib import SieveClient, SieveClientError
+from .rfc6266 import build_header
 from .templatetags.sfilters_tags import fset_menu
 
 
