@@ -1,7 +1,7 @@
 modoboa-sievefilters
 ====================
 
-|travis| |codecov| |landscape|
+|gha| |codecov|
 
 The sieve filters editor of Modoboa.
 
@@ -38,12 +38,8 @@ Run the following commands to setup the database tables::
 Finally, restart the python process running modoboa (uwsgi, gunicorn,
 apache, whatever).
 
-.. |travis| image:: https://travis-ci.org/modoboa/modoboa-sievefilters.svg?branch=master
-   :target: https://travis-ci.org/modoboa/modoboa-sievefilters
+.. |gha| image:: https://github.com/modoboa/modoboa-postfix-sievefilters/actions/workflows/plugin.yml/badge.svg
+   :target: https://github.com/modoboa/modoboa-postfix-sievefilters/actions/workflows/plugin.yml
 
 .. |codecov| image:: https://codecov.io/gh/modoboa/modoboa-sievefilters/branch/master/graph/badge.svg
    :target: https://codecov.io/gh/modoboa/modoboa-sievefilters
-
-.. |landscape| image:: https://landscape.io/github/modoboa/modoboa-sievefilters/master/landscape.svg?style=flat
-   :target: https://landscape.io/github/modoboa/modoboa-sievefilters/master
-   :alt: Code Health
