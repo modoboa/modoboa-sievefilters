@@ -2,9 +2,7 @@
 
 """Sievefilters tests."""
 
-from __future__ import unicode_literals
-
-import mock
+from unittest import mock
 
 from django.urls import reverse
 
