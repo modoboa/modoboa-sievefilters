@@ -38,8 +38,8 @@ Run the following commands to setup the database tables::
 Finally, restart the python process running modoboa (uwsgi, gunicorn,
 apache, whatever).
 
-.. |gha| image:: https://github.com/modoboa/modoboa-postfix-sievefilters/actions/workflows/plugin.yml/badge.svg
-   :target: https://github.com/modoboa/modoboa-postfix-sievefilters/actions/workflows/plugin.yml
+.. |gha| image:: https://github.com/modoboa/modoboa-sievefilters/actions/workflows/plugin.yml/badge.svg
+   :target: https://github.com/modoboa/modoboa-sievefilters/actions/workflows/plugin.yml
 
 .. |codecov| image:: https://codecov.io/gh/modoboa/modoboa-sievefilters/branch/master/graph/badge.svg
    :target: https://codecov.io/gh/modoboa/modoboa-sievefilters
