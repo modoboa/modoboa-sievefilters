@@ -9,7 +9,7 @@ from sievelib import managesieve
 from sievelib.parser import Parser
 import six
 
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 
 from modoboa.lib.connections import ConnectionsManager, ConnectionError
 from modoboa.lib.exceptions import ModoboaException

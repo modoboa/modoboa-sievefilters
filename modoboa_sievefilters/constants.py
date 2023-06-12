@@ -1,6 +1,6 @@
 """Sieve filters constants."""
 
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 HEADER_OPERATORS = [
     ("contains", _("contains"), "string"),
