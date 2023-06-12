@@ -5,8 +5,8 @@ from sievelib.managesieve import SUPPORTED_AUTH_MECHS
 
 from django import forms
 from django.http import QueryDict
-from django.utils.encoding import smart_text
-from django.utils.translation import ugettext as _, ugettext_lazy
+from django.utils.encoding import smart_str
+from django.utils.translation import gettext as _, gettext_lazy
 
 from modoboa.admin.templatetags.admin_tags import gender
 from modoboa.lib import form_utils
@@ -24,7 +24,7 @@ class FiltersSetForm(forms.Form):
     active = forms.BooleanField(
         label=gender("Active", "m"), required=False,
         initial=False,
-        help_text=ugettext_lazy("Check to activate this filters set")
+        help_text=gettext_lazy("Check to activate this filters set")
     )
 
 
@@ -267,10 +267,10 @@ def build_filter_form_from_filter(request, name, fobj):
                 t = t["test"]
                 operator_prefix = "not"
             conditions += [(
-                smart_text(t["header-names"]).strip('"'),
+                smart_str(t["header-names"]).strip('"'),
                 "{}{}".format(
-                    operator_prefix, smart_text(t["match-type"])[1:]),
-                smart_text(t["key-list"]).strip('"'))
+                    operator_prefix, smart_str(t["match-type"])[1:]),
+                smart_str(t["key-list"]).strip('"'))
             ]
     actions = []
     for c in fobj.children:
@@ -287,7 +287,7 @@ def build_filter_form_from_filter(request, name, fobj):
             action += (value, )
         actions += [action]
     form = FilterForm(conditions, actions, request)
-    form.fields["name"].initial = smart_text(name)
+    form.fields["name"].initial = smart_str(name)
     form.fields["match_type"].initial = match_type
     return form
 
@@ -303,90 +303,90 @@ class ParametersForm(param_forms.AdminParametersForm):
     app = "modoboa_sievefilters"
 
     sep1 = form_utils.SeparatorField(
-        label=ugettext_lazy("ManageSieve settings"))
+        label=gettext_lazy("ManageSieve settings"))
 
     server = forms.CharField(
-        label=ugettext_lazy("Server address"),
+        label=gettext_lazy("Server address"),
         initial="127.0.0.1",
-        help_text=ugettext_lazy("Address of your MANAGESIEVE server"),
+        help_text=gettext_lazy("Address of your MANAGESIEVE server"),
         widget=forms.TextInput(attrs={"class": "form-control"})
     )
 
     port = forms.IntegerField(
-        label=ugettext_lazy("Server port"),
+        label=gettext_lazy("Server port"),
         initial=4190,
-        help_text=ugettext_lazy("Listening port of your MANAGESIEVE server"),
+        help_text=gettext_lazy("Listening port of your MANAGESIEVE server"),
         widget=forms.TextInput(attrs={"class": "form-control"})
     )
 
     starttls = form_utils.YesNoField(
-        label=ugettext_lazy("Connect using STARTTLS"),
+        label=gettext_lazy("Connect using STARTTLS"),
         initial=False,
-        help_text=ugettext_lazy("Use the STARTTLS extension")
+        help_text=gettext_lazy("Use the STARTTLS extension")
     )
 
     authentication_mech = forms.ChoiceField(
-        label=ugettext_lazy("Authentication mechanism"),
+        label=gettext_lazy("Authentication mechanism"),
         choices=supported_auth_mechs(),
         initial="auto",
-        help_text=ugettext_lazy("Prefered authentication mechanism"),
+        help_text=gettext_lazy("Prefered authentication mechanism"),
         widget=forms.Select(attrs={"class": "form-control"})
     )
 
-    sep2 = form_utils.SeparatorField(label=ugettext_lazy("IMAP settings"))
+    sep2 = form_utils.SeparatorField(label=gettext_lazy("IMAP settings"))
 
     imap_server = forms.CharField(
-        label=ugettext_lazy("Server address"),
+        label=gettext_lazy("Server address"),
         initial="127.0.0.1",
-        help_text=ugettext_lazy("Address of your IMAP server")
+        help_text=gettext_lazy("Address of your IMAP server")
     )
 
     imap_secured = form_utils.YesNoField(
-        label=ugettext_lazy("Use a secured connection"),
+        label=gettext_lazy("Use a secured connection"),
         initial=False,
-        help_text=ugettext_lazy(
+        help_text=gettext_lazy(
             "Use a secured connection to access IMAP server")
     )
 
     imap_port = forms.IntegerField(
-        label=ugettext_lazy("Server port"),
+        label=gettext_lazy("Server port"),
         initial=143,
-        help_text=ugettext_lazy("Listening port of your IMAP server")
+        help_text=gettext_lazy("Listening port of your IMAP server")
     )
 
 
 class UserSettings(param_forms.UserParametersForm):
     app = "modoboa_sievefilters"
 
-    sep1 = form_utils.SeparatorField(label=ugettext_lazy("General"))
+    sep1 = form_utils.SeparatorField(label=gettext_lazy("General"))
 
     editor_mode = forms.ChoiceField(
         initial="gui",
-        label=ugettext_lazy("Editor mode"),
+        label=gettext_lazy("Editor mode"),
         choices=[("raw", "raw"), ("gui", "simplified")],
-        help_text=ugettext_lazy(
+        help_text=gettext_lazy(
             "Select the mode you want the editor to work in"),
         widget=form_utils.HorizontalRadioSelect()
     )
 
-    sep2 = form_utils.SeparatorField(label=ugettext_lazy("Mailboxes"))
+    sep2 = form_utils.SeparatorField(label=gettext_lazy("Mailboxes"))
 
     trash_folder = forms.CharField(
         initial="Trash",
-        label=ugettext_lazy("Trash folder"),
-        help_text=ugettext_lazy("Folder where deleted messages go")
+        label=gettext_lazy("Trash folder"),
+        help_text=gettext_lazy("Folder where deleted messages go")
     )
 
     sent_folder = forms.CharField(
         initial="Sent",
-        label=ugettext_lazy("Sent folder"),
-        help_text=ugettext_lazy("Folder where copies of sent messages go")
+        label=gettext_lazy("Sent folder"),
+        help_text=gettext_lazy("Folder where copies of sent messages go")
     )
 
     drafts_folder = forms.CharField(
         initial="Drafts",
-        label=ugettext_lazy("Drafts folder"),
-        help_text=ugettext_lazy("Folder where drafts go")
+        label=gettext_lazy("Drafts folder"),
+        help_text=gettext_lazy("Folder where drafts go")
     )
 
     @staticmethod

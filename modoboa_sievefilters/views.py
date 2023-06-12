@@ -10,8 +10,8 @@ from django.urls import reverse
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from django.template.loader import render_to_string
-from django.utils.encoding import smart_bytes, smart_text
-from django.utils.translation import ugettext as _
+from django.utils.encoding import smart_bytes, smart_str
+from django.utils.translation import gettext as _
 
 from modoboa.admin.lib import needs_mailbox
 from modoboa.lib.connections import ConnectionError
@@ -300,7 +300,7 @@ def download_filters_set(request, name):
 def toggle_filter_state(request, setname, fname):
     sc = SieveClient(user=request.user.username,
                      password=request.session["password"])
-    fname = smart_text(fname)
+    fname = smart_str(fname)
     fset = sc.getscript(setname, format="fset")
     if fset.is_filter_disabled(fname):
         ret = fset.enablefilter(fname)

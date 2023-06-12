@@ -73,6 +73,12 @@ MODOBOA_APPS = (
     'modoboa.relaydomains',
     'modoboa.limits',
     'modoboa.parameters',
+    'modoboa.dnstools',
+    'modoboa.policyd',
+    'modoboa.maillog',
+    'modoboa.pdfcredentials',
+    'modoboa.dmarc',
+    'modoboa.imap_migration',
     # Modoboa extensions here.
     'modoboa_sievefilters',
 )
